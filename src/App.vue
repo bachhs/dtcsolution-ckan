@@ -46,7 +46,7 @@ const dataCategoryStore = useDataCategoryStore();
                 <a href="/" class="navbar-brand ml-lg-3">
                     <div class="mb-2">
                         <h1 class="m-0 mt-2 mb-0 text-uppercase text-primary" style="line-height: 2.2rem;"><strong>CKAN.DATA</strong></h1>
-                        <div style="font-size: 80%;"><i>Government’s open data</i></div>
+                        <div style="font-size: 80%;"><i>Cổng dữ liệu mở Tuyên Quang</i></div>
                     </div>
                 </a>
                 <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
