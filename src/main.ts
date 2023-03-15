@@ -15,6 +15,7 @@ import TextClamp from 'vue3-text-clamp';
 //import TagsEdit from '@/components/TagsEdit.vue';
 import SkeletonBoxWithoutLoading from '@/components/SkeletonBoxWithoutLoading.vue';
 import moment from 'moment';
+import '@/assets/styles/custom.scss';
 
 const axiosInstance = axios.create({
     baseURL: import.meta.env.VITE_API_URL,

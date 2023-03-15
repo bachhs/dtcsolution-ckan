@@ -6,8 +6,8 @@
         <!-- Header Start -->
         <div class="jumbotron jumbotron-fluid position-relative overlay-bottom" style="margin-bottom: 90px;">
             <div class="container text-center my-5 py-5">
-                <!-- <h1 class="text-white mt-4 mb-4 font-Roboto">Hệ thống tra cứu thông tin</h1>
-                <h1 class="text-white display-1 mb-5 font-Roboto"><strong>DTC SOLUTION</strong></h1> -->
+                <h1 class="text-white mt-4 mb-4 font-Roboto">Bắt đầu tìm kiếm dữ liệu..</h1>
+                <!-- <h5 class="text-white display-4 mb-5 font-Roboto"><strong>DTC SOLUTION</strong></h5> -->
                 <div class="mx-auto mb-5" style="width: 100%; max-width: 600px;">
                     <div class="input-group">
                         <!-- <div class="input-group-prepend">
@@ -35,141 +35,43 @@
         <!-- Header End -->
         <!-- About Start -->
         <div class="container-fluid pb-5">
-            <div class="container pb-5">
-                <div class="docs-overview pb-5">
-                    <div class="row justify-content-center row-eq-height">
-                        <div class="col-12 col-lg-4 py-3 d-flex">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title mb-3">
-                                        <span class="theme-icon-holder card-icon-holder me-2">
-                                            <i class="fas fa-user-graduate"></i>
-                                        </span><!--//card-icon-holder-->
-                                        <span class="card-title-text">Giáo dục</span>
-                                    </h5>
-                                    <div class="card-text">
-                                        GDVN- Uỷ ban Văn hoá, Giáo dục của Quốc hội đã có buổi khảo sát cơ sở vật chất,
-                                        lắng nghe ý kiến của giáo viên về việc thực hiện CTGDPT 2018 của ngành GD Hải
-                                        Phòng.
-                                    </div>
-                                    <a class="card-link-mask" href="docs-page.html#section-1"></a>
-                                </div><!--//card-body-->
-                            </div><!--//card-->
-                        </div><!--//col-->
-                        <div class="col-12 col-lg-4 py-3 d-flex">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title mb-3">
-                                        <span class="theme-icon-holder card-icon-holder me-2">
-                                            <i class="fas fa-dollar-sign"></i>
-                                        </span><!--//card-icon-holder-->
-                                        <span class="card-title-text">Tài chính</span>
-                                    </h5>
-                                    <div class="card-text">
-                                        Bộ Tài chính đang lấy ý kiến của các bộ, ngành, địa phương, uỷ ban nhân dân các
-                                        tỉnh, thành phố về báo cáo lộ trình rút ngắn quy trình, thời gian quyết toán
-                                        ngân sách nhà nước hàng năm, nhằm khắc phục một số tồn tại hiện nay...
-                                    </div>
-                                    <a class="card-link-mask" href="docs-page.html#section-2"></a>
-                                </div><!--//card-body-->
-                            </div><!--//card-->
-                        </div><!--//col-->
-                        <div class="col-12 col-lg-4 py-3 d-flex">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title mb-3">
-                                        <span class="theme-icon-holder card-icon-holder me-2">
-                                            <i class="fas fa-briefcase-medical"></i>
-                                        </span><!--//card-icon-holder-->
-                                        <span class="card-title-text">Y Tế</span>
-                                    </h5>
-                                    <div class="card-text">
-                                        Phó Thủ tướng Trần Hồng Hà nhấn mạnh điều này tại cuộc làm việc thứ hai với Bộ Y
-                                        tế chỉ trong vòng 10 ngày, vào sáng 9/2, để tháo gỡ những vấn đề nóng nhất,
-                                        vướng nhất của ngành hiện nay.
-                                    </div>
-                                    <a class="card-link-mask" href="docs-page.html#section-3"></a>
-                                </div><!--//card-body-->
-                            </div><!--//card-->
-                        </div><!--//col-->
-                        <div class="col-12 col-lg-4 py-3 d-flex">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title mb-3">
-                                        <span class="theme-icon-holder card-icon-holder me-2">
-                                            <i class="fas fa-truck-pickup"></i>
-                                        </span><!--//card-icon-holder-->
-                                        <span class="card-title-text">Xây Dựng</span>
-                                    </h5>
-                                    <div class="card-text">
-                                        Ngày 12/2, tại Quảng Ninh, Hội nghị về phát triển vùng Đồng bằng sông Hồng sẽ
-                                        diễn ra dưới sự chủ trì của Thủ tướng Phạm Minh Chính.
-                                    </div>
-                                    <a class="card-link-mask" href="docs-page.html#section-4"></a>
-                                </div><!--//card-body-->
-                            </div><!--//card-->
-                        </div><!--//col-->
-                        <div class="col-12 col-lg-4 py-3 d-flex">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title mb-3">
-                                        <span class="theme-icon-holder card-icon-holder me-2">
-                                            <i class="fas fa-chalkboard"></i>
-                                        </span><!--//card-icon-holder-->
-                                        <span class="card-title-text">Công nghệ</span>
-                                    </h5>
-                                    <div class="card-text">
-                                        Xu hướng review quần áo, mỹ phẩm tràn lan đã khiến người dùng ngày càng mất niềm
-                                        tin vào các TikToker khi họ được trả tiền để tung hô, tâng bốc sản phẩm.
-                                    </div>
-                                    <a class="card-link-mask" href="docs-page.html#section-5"></a>
-                                </div><!--//card-body-->
-                            </div><!--//card-->
-                        </div><!--//col-->
-                        <div class="col-12 col-lg-4 py-3 d-flex">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title mb-3">
-                                        <span class="theme-icon-holder card-icon-holder me-2">
-                                            <i class="fas fa-taxi"></i>
-                                        </span><!--//card-icon-holder-->
-                                        <span class="card-title-text">Giao thông</span>
-                                    </h5>
-                                    <div class="card-text">
-                                        Theo Bộ trưởng Giao thông Vận tải Nguyễn Văn Thắng, tiêu cực trong đăng kiểm ôtô
-                                        vừa qua là do đẩy mạnh phân cấp cho địa phương nhưng thiếu kiểm tra, giám sát.
-                                    </div>
-                                    <a class="card-link-mask" href="docs-page.html#section-6"></a>
-                                </div><!--//card-body-->
-                            </div><!--//card-->
-                        </div><!--//col-->
-                    </div><!--//row-->
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
-                        <div class="position-relative h-100">
-                            <img class="position-absolute w-100 h-100"
-                                src="https://znews-photo.zingcdn.me/w360/Uploaded/mdf_uswreo/2023_02_06/7DHMSRJDQNHQFN3LI6364IQ54E.jpg"
-                                style="object-fit: cover;">
+            <div class="container pb-1">
+                <div>
+                    <h3 class="mb-3"><i class="fas fa-angle-double-right text-primary"></i> XU HƯỚNG</h3>
+                    <div class="row">
+                        <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
+                            <div class="position-relative h-100">
+                                <img class="position-absolute w-100 h-100"
+                                    src="https://znews-photo.zingcdn.me/w360/Uploaded/mdf_uswreo/2023_02_06/7DHMSRJDQNHQFN3LI6364IQ54E.jpg"
+                                    style="object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="section-title position-relative mb-4">
+                                <h1 class="display-4">Rivers of Data – Inland Electronic Navigation Charts</h1>
+                            </div>
+                            <p>Nautical charts provide critical information to mariners in support of safe navigation.  Historically these charts have been printed and distributed on paper, but modern communications systems allow for electronic charts that are able to be updated as new information becomes available.  The National Oceanic and Atmospheric Administration (NOAA) Office of Coast Survey produces charts for coastal and Great Lakes areas, and the U.S. Army Corps of Engineers produces charts for America’s inland rivers through the Inland Electronic Navigation Chart program.  The Inland Electronic Navigation Chart (IENC) program covers thousands of miles of navigable waterways.  America’s inland waterways move millions of tons of commodities every year, and the work of surveying, charting, and dredging sediment is continually ongoing due to the dynamic conditions and constant change happening along any given river.</p>
+                            <p>Rivers included in the Inland Electronic Navigation Chart (IENC) program include the Allegheny River, Arkansas River, Atchafalaya River, Black Warrior-Tombigbee Rivers, Cumberland River, Green River, Illinois River, Kaskaskia, Kanawha River, Lower Mississippi River, Missouri River, Monongahela River, Ohio River, Ouachita River, Red River, Tennessee River (including the Tellico, Hiwassee, Clinch and Emory Rivers), Tennessee-Tombigbee Waterway, Upper Mississippi River, and the White River.  Anyone can access the navigation charts for these rivers, which show depth contours, buoys, lights, known hazards, and reference landmarks.</p>
+                            <p>References and Data.Gov Links:</p>
+                            <p>Inland Electronic Navigational Charts (IENC), https://catalog.data.gov/dataset/inland-electronic-navigational-charts-ienc</p>
+                            <p>USACE Inland Electronic Navigation Charts Homepage, http://ienccloud.us/</p>
+                            <p>NOAA Electronic Navigational Charts (ENC), https://catalog.data.gov/dataset/noaa-electronic-navigational-charts-enc7cce5</p>
+                            <p>NOAA Raster Navigational Charts (RNC), https://catalog.data.gov/dataset/noaa-raster-navigational-charts-rnc7af22</p>
                         </div>
                     </div>
-                    <div class="col-lg-7">
-                        <div class="section-title position-relative mb-4">
-                            <h1 class="display-4">ChatGPT đang đe dọa ai</h1>
-                        </div>
-                        <p>ChatGPT chỉ mới là khởi đầu vì AI sẽ còn phát triển và ảnh hưởng hơn nữa. Nó sẽ thay đổi cách
-                            chúng ta làm việc, học tập và cách mọi người định nghĩa về sáng tạo, nghệ thuật.</p>
-                        <p>Khi được hỏi về vai trò của chính mình trong cuộc cách mạng khoa học công nghệ, ChatGPT,
-                            chatbot được phát triển bởi công ty OpenAI, đưa ra câu trả lời: "ChatGPT đang được ứng dụng
-                            và dự kiến có tác động đáng kể đến nhiều lĩnh vực. Tiềm năng là rất lớn, nhưng cũng làm dấy
-                            lên những lo ngại về đạo đức".</p>
-                        <p>Đó cũng là nhận định chung của hầu hết chuyên gia công nghệ, theo EL PAÍS.</p>
-                        <p>Mary Shelley đã viết về quái vật Frankenstein hơn 200 năm trước và trong nhiều thập kỷ qua,
-                            nhân loại nỗ lực phát triển AI ngoài đời thực.</p>
-                        <p>Sự xuất hiện của ChatGPT vào tháng 11/2022 được cho đánh dấu cột mốc mới, nơi hệ thống trí
-                            tuệ nhân tạo gây ấn tượng nhờ khả năng hiểu và phản hồi các thắc mắc của người dùng bằng
-                            ngôn ngữ tự nhiên, mạch lạc.</p>
+                </div>
+                <div class="mt-5">                    
+                    <h3 class="mb-3"><i class="fas fa-angle-double-right text-primary"></i> CẬP NHẬT</h3>
+                    <div>
+                        <el-card class="mb-3" v-for="item in 5">
+                            <div>
+                                <a href="/"><strong>Hydrosurvey Data Archive for Federal Navigation Projects</strong></a>
+                            </div>
+                            <div><i class="fas fa-calendar-alt tex-primary mr-2"></i><small class="text-muted">July 27, 2021  By Marin Kress, Research Scientist, U.S. Army Corps of Engineers</small></div>
+                            <div class="mt-1 text-muted text-justify" style="font-size: 90%;">
+                                The U.S. Army Corps of Engineers (USACE) performs hydrographic surveys (hydrosurveys) for federal navigation projects around the U.S. Federal navigation projects include an estimated 25,000 miles of channels and form a key part of U.S. maritime infrastructure in both coastal 
+                            </div>
+                        </el-card>
                     </div>
                 </div>
             </div>

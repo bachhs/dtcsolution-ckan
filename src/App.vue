@@ -44,19 +44,24 @@ const dataCategoryStore = useDataCategoryStore();
         <div class="container-fluid p-0">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
                 <a href="/" class="navbar-brand ml-lg-3">
-                    <h1 class="m-0 mt-2 mb-2 text-uppercase text-primary"><strong>Thủ tục hành chính</strong></h1>
+                    <div class="mb-2">
+                        <h1 class="m-0 mt-2 mb-0 text-uppercase text-primary" style="line-height: 2.2rem;"><strong>CKAN.DATA</strong></h1>
+                        <div style="font-size: 80%;"><i>Government’s open data</i></div>
+                    </div>
                 </a>
                 <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button> -->
                 <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                     <div class="navbar-nav mx-auto py-0">
-                        <!-- <a href="/" class="nav-item nav-link active">Trang chủ</a>
-                        <a href="about.html" class="nav-item nav-link">Về chúng tôi</a>
-                        <a href="course.html" class="nav-item nav-link">Hồ sơ năng lực</a> 
-                        <a href="contact.html" class="nav-item nav-link">Liên hệ</a> -->
+                        <router-link to="/home" class="nav-item nav-link active">Trang chủ</router-link>
+                        <router-link to="about.html" class="nav-item nav-link">Chủ đề</router-link>
+                        <router-link to="course.html" class="nav-item nav-link">Tài nguyên</router-link> 
+                        <router-link to="contact.html" class="nav-item nav-link">Chiến lược</router-link>
+                        <router-link to="contact.html" class="nav-item nav-link">Nhà phát triển</router-link>
+                        <router-link to="contact.html" class="nav-item nav-link">Liên hệ</router-link>
                     </div>
-                    <a href="" class="btn btn-primary py-2 px-4 d-none d-lg-block float-right">Blog</a>
+                    <router-link to="/about-us" class="btn btn-primary py-2 px-4 d-none d-lg-block float-right">Về chúng tôi</router-link>
                 </div>
             </nav>
         </div>
@@ -66,17 +71,17 @@ const dataCategoryStore = useDataCategoryStore();
 
         <!-- Footer Start -->
         <div class="container-fluid position-relative overlay-top bg-dark text-white-50 py-5" style="margin-top: 90px;">
-            <div class="container mt-5 pt-5">
+            <div class="container mt-2 pt-5">
                 <div class="row">
-                    <div class="col-md-12 mb-5">
+                    <div class="col-md-12 mb-1">
                         <a href="/" class="navbar-brand">
-                            <h1 class="mt-n2 text-uppercase text-white">DTC SOLUTION</h1>
+                            <h1 class="mt-n2 text-uppercase text-white">CKAN.DATA</h1>
                         </a>
-                        <p class="m-0 text-justify"><strong>DTC SOLUTION</strong> là công ty cung cấp dịch vụ tư vấn lộ trình chuyển đổi số giúp doanh nghiệp từng bước xây dựng nguồn lực & ứng dụng công nghệ để giải quyết các bài toán doanh nghiệp cụ thể, gắn liền với định hướng phát triển doanh nghiệp, hướng tới sự tối ưu và cải tiến, tạo ra những giá trị mới.</p>
+                        <!-- <p class="m-0 text-justify"><strong>DTC SOLUTION</strong> là công ty cung cấp dịch vụ tư vấn lộ trình chuyển đổi số giúp doanh nghiệp từng bước xây dựng nguồn lực & ứng dụng công nghệ để giải quyết các bài toán doanh nghiệp cụ thể, gắn liền với định hướng phát triển doanh nghiệp, hướng tới sự tối ưu và cải tiến, tạo ra những giá trị mới.</p> -->
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 mb-5">
+                    <div class="col-md-4 mb-2">
                         <h3 class="text-white text-nowrap mb-4">Thông tin</h3>
                         <p><i class="fa fa-clock mr-2"></i>Cập nhật 5/12/2022</p>
                         <p><i class="fa fa-phone-alt mr-2"></i>+84 345 67890</p>
@@ -88,7 +93,7 @@ const dataCategoryStore = useDataCategoryStore();
                             <a class="text-white" href="#"><i class="fab fa-2x fa-instagram"></i></a>
                         </div>
                     </div> 
-                    <div class="col-md-4 mb-5">
+                    <div class="col-md-4 mb-2">
                         <h3 class="text-white mb-4">Liên kết nhanh</h3>
                         <div class="d-flex flex-column justify-content-start">
                             <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Privacy
@@ -110,12 +115,12 @@ const dataCategoryStore = useDataCategoryStore();
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
-                        <p class="m-0">Copyright &copy; <a class="text-white" href="#">DTC SOLUTION</a>. All Rights
+                        <p class="m-0">Copyright &copy; <a class="text-white" href="#">CKAN.DATA</a>. All Rights
                             Reserved.
                         </p>
                     </div>
                     <div class="col-md-6 text-center text-md-right">
-                        <p class="m-0">Designed by HTML Codex</p>
+                        <!-- <p class="m-0">Designed by HTML Codex</p> -->
                     </div>
                 </div>
             </div>
