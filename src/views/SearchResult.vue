@@ -1,7 +1,6 @@
 <template>
     <section>
-        <div class="position-fixed d-flex align-items-center justify-content-center" 
-            v-if="isLoadingResult"
+        <div class="position-fixed d-flex align-items-center justify-content-center" v-if="isLoadingResult"
             style="top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; background-color: rgba(255, 255, 255, 0.9);">
             <div class="text-center">
                 <div class="lds-dual-ring"></div>
@@ -18,8 +17,7 @@
                             class="form-control border-light" style="padding: 30px 25px;"
                             placeholder="Nhập từ khoá để tìm kiếm..">
                         <div class="input-group-append">
-                            <button class="btn btn-secondary px-4 px-lg-5 font-Roboto" 
-                                @click="submitSearch">
+                            <button class="btn btn-secondary px-4 px-lg-5 font-Roboto" @click="submitSearch">
                                 Tìm kiếm
                             </button>
                         </div>
@@ -32,40 +30,27 @@
         <div class="container-fluid pb-lg-0 px-lg-5">
             <div class="mx-lg-5 pb-lg-0">
                 <div class="row row-eq-height px-lg-5">
-                    <div class="col-lg-3 col-sm-4 mb-5 mb-lg-0 d-none d-md-flex" style="min-height: 500px;">
-                        <el-card class="position-relative w-100 h-100">
-                            <!-- <div class="topic-list mt-2">
-                                <ul>
-                                    <li v-for="topicItem in topicsList" :key="topicItem.value"
-                                        v-bind:class="{ 'selected': topicItem.value === topicItemSelected }"
-                                        @click="changedTopic(topicItem.value)">
-                                        <a href="javascript:void(0)">
-                                            <span class="theme-icon-holder card-icon-holder me-2">
-                                                <i :class="topicItem.icon"></i>
-                                            </span>
-                                            <span class="card-title-text">{{ topicItem.name }}</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div> -->
-                            <div class="mb-3" v-if="aggregationsList.dataset_owner.length > 0">
-                                <div class="section-title position-relative mb-1">
-                                    <h4><i class="fas fa-filter text-primary"></i> Dataset owner</h4>
+                    <div class="col-lg-3 col-sm-4 mb-5 mb-lg-0 pr-0 pr-md-4 d-none d-md-flex" style="min-height: 500px;">
+                        <div class="position-relative w-100 h-100">
+                             
+
+                            <div class="mb-4 filter-group-block">
+                                <div class="section-title filter-group-header position-relative text-white">
+                                    <h4><i class="fas fa-angle-double-right"></i> Chủ đề</h4>
                                 </div>
-                                <div class="topic-list mt-2">
+                                <div class="topic-list mt-0 p-2 filter-content-block">
                                     <ul>
-                                        <li v-for="filterItem in aggregationsList.dataset_owner" :key="filterItem.key"
-                                            v-bind:class="{ 'selected': filterItem.selected }"
-                                            @click="filterItem.selected = !filterItem.selected; submitSearch();">
+                                        <li v-for="filterItem in 5" :key="filterItem">
                                             <a href="javascript:void(0)">
-                                                <div  class="d-flex align-items-center">
-                                                    <div class="theme-icon-holder card-icon-holder me-2">
-                                                        <i v-bind:class="{ 'fas fa-cubes': !filterItem.selected, 'fas fa-check': filterItem.selected }"></i>
+                                                <div class="pl-2 d-flex align-items-center">
+                                                    <div>
+                                                        <i class="fas fa-hand-point-right"></i>
                                                     </div>
-                                                    <div class="flex-fill card-title-text">{{ filterItem.key }}</div>
+                                                    <div class="ml-2 flex-fill text-muted card-title-text">Topic {{
+                                                        filterItem }}</div>
                                                     <div>
                                                         <span class="ml-1 mr-2 bage-count badge">
-                                                            {{filterItem.doc_count}}
+                                                            99
                                                         </span>
                                                     </div>
                                                 </div>
@@ -74,24 +59,24 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="mb-3"  v-if="aggregationsList.dataset_name.length > 0">
-                                <div class="section-title position-relative mb-1">
-                                    <h4><i class="fas fa-filter text-primary"></i> Dataset name</h4>
+
+                            <div class="mb-4 filter-group-block">
+                                <div class="section-title filter-group-header position-relative text-white">
+                                    <h4><i class="fas fa-angle-double-right"></i> Topic Categories</h4>
                                 </div>
-                                <div class="topic-list mt-2">
+                                <div class="topic-list mt-0 p-2 filter-content-block">
                                     <ul>
-                                        <li v-for="filterItem in aggregationsList.dataset_name" :key="filterItem.key"
-                                            v-bind:class="{ 'selected': filterItem.selected }"
-                                            @click="filterItem.selected = !filterItem.selected; submitSearch();">
+                                        <li v-for="filterItem in 5" :key="filterItem">
                                             <a href="javascript:void(0)">
-                                                <div  class="d-flex align-items-center">
-                                                    <div class="theme-icon-holder card-icon-holder me-2">
-                                                        <i v-bind:class="{ 'fas fa-cubes': !filterItem.selected, 'fas fa-check': filterItem.selected }"></i>
+                                                <div class="pl-2 d-flex align-items-center">
+                                                    <div>
+                                                        <i class="fas fa-hand-point-right"></i>
                                                     </div>
-                                                    <div class="flex-fill card-title-text">{{ filterItem.key }}</div>
+                                                    <div class="ml-2 flex-fill text-muted card-title-text">Topic Categories
+                                                        {{ filterItem }}</div>
                                                     <div>
                                                         <span class="ml-1 mr-2 bage-count badge">
-                                                            {{filterItem.doc_count}}
+                                                            99
                                                         </span>
                                                     </div>
                                                 </div>
@@ -100,24 +85,24 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="mb-3"  v-if="aggregationsList.dataset_categories.length > 0">
-                                <div class="section-title position-relative mb-1">
-                                    <h4><i class="fas fa-filter text-primary"></i> Dataset categories</h4>
+
+                            <div class="mb-4 filter-group-block">
+                                <div class="section-title filter-group-header position-relative text-white">
+                                    <h4><i class="fas fa-angle-double-right"></i> Dataset Type</h4>
                                 </div>
-                                <div class="topic-list mt-2">
+                                <div class="topic-list mt-0 p-2 filter-content-block">
                                     <ul>
-                                        <li v-for="filterItem in aggregationsList.dataset_categories" :key="filterItem.key"
-                                            v-bind:class="{ 'selected': filterItem.selected }"
-                                            @click="filterItem.selected = !filterItem.selected; submitSearch();">
+                                        <li v-for="filterItem in 5" :key="filterItem">
                                             <a href="javascript:void(0)">
-                                                <div  class="d-flex align-items-center">
-                                                    <div class="theme-icon-holder card-icon-holder me-2">
-                                                        <i v-bind:class="{ 'fas fa-cubes': !filterItem.selected, 'fas fa-check': filterItem.selected }"></i>
+                                                <div class="pl-2 d-flex align-items-center">
+                                                    <div>
+                                                        <i class="fas fa-hand-point-right"></i>
                                                     </div>
-                                                    <div class="flex-fill card-title-text">{{ filterItem.key }}</div>
+                                                    <div class="ml-2 flex-fill text-muted card-title-text">Dataset Type {{
+                                                        filterItem }}</div>
                                                     <div>
                                                         <span class="ml-1 mr-2 bage-count badge">
-                                                            {{filterItem.doc_count}}
+                                                            99
                                                         </span>
                                                     </div>
                                                 </div>
@@ -126,44 +111,131 @@
                                     </ul>
                                 </div>
                             </div>
-                        </el-card>
+
+                            <div class="mb-4 filter-group-block">
+                                <div class="section-title filter-group-header position-relative text-white">
+                                    <h4><i class="fas fa-angle-double-right"></i> Tags</h4>
+                                </div>
+                                <div class="topic-list mt-0 p-2 filter-content-block">
+                                    <ul>
+                                        <li v-for="filterItem in 5" :key="filterItem">
+                                            <a href="javascript:void(0)">
+                                                <div class="pl-2 d-flex align-items-center">
+                                                    <div>
+                                                        <i class="fas fa-hand-point-right"></i>
+                                                    </div>
+                                                    <div class="ml-2 flex-fill text-muted card-title-text">Tags {{
+                                                        filterItem }}</div>
+                                                    <div>
+                                                        <span class="ml-1 mr-2 bage-count badge">
+                                                            99
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 filter-group-block">
+                                <div class="section-title filter-group-header position-relative text-white">
+                                    <h4><i class="fas fa-angle-double-right"></i> Formats</h4>
+                                </div>
+                                <div class="topic-list mt-0 p-2 filter-content-block">
+                                    <ul>
+                                        <li v-for="filterItem in 5" :key="filterItem">
+                                            <a href="javascript:void(0)">
+                                                <div class="pl-2 d-flex align-items-center">
+                                                    <div>
+                                                        <i class="fas fa-hand-point-right"></i>
+                                                    </div>
+                                                    <div class="ml-2 flex-fill text-muted card-title-text">Formats {{
+                                                        filterItem }}</div>
+                                                    <div>
+                                                        <span class="ml-1 mr-2 bage-count badge">
+                                                            99
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 filter-group-block">
+                                <div class="section-title filter-group-header position-relative text-white">
+                                    <h4><i class="fas fa-angle-double-right"></i> Organization Types</h4>
+                                </div>
+                                <div class="topic-list mt-0 p-2 filter-content-block">
+                                    <ul>
+                                        <li v-for="filterItem in 5" :key="filterItem">
+                                            <a href="javascript:void(0)">
+                                                <div class="pl-2 d-flex align-items-center">
+                                                    <div>
+                                                        <i class="fas fa-hand-point-right"></i>
+                                                    </div>
+                                                    <div class="ml-2 flex-fill text-muted card-title-text">Organization
+                                                        Types {{ filterItem }}</div>
+                                                    <div>
+                                                        <span class="ml-1 mr-2 bage-count badge">
+                                                            99
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12 col-lg-9 col-sm-8 pl-lg-0 d-flex flex-column">
-                        <el-card class="w-100 flex-fill d-flex flex-column">
-                            <div class="section-title position-relative mb-4">
-                                <h4>{{resultSearchData.total.value}} dữ liệu được tìm thấy cho từ khoá "<strong
+                        <div class="w-100 flex-fill d-flex flex-column">
+                            <div class="section-title position-relative mb-2">
+                                <h4>{{ resultSearchData.total.value }} dữ liệu được tìm thấy cho từ khoá "<strong
                                         class="text-primary">{{ keyword }}</strong>"</h4>
                             </div>
                             <div class="flex-fill" style="min-height: 30rem;">
                                 <div v-if="resultSearchData.data.length > 0">
                                     <el-card v-for="itemData in resultSearchData.data" :key="itemData._id"
                                         class="w-100 mb-3 result-item-wrapper cursor-pointer">
-                                        <a class="d-block w-100" target="_blank" :href="`/detail-search-result?documentId=${itemData._id}`">
-                                            <div >
-                                                <h5><span class="text-primary mr-2">#{{itemData._id}}</span>{{ itemData._source.file_name }}</h5>
+                                        <a class="d-block w-100" target="_blank"
+                                            :href="`/detail-search-result?documentId=${itemData._id}`">
+                                            <div>
+                                                <h5><span class="text-primary mr-2">MD COVID-19 - Total Number Released
+                                                        from Isolation: CovidLINK</span> <span>- 10 lượt xem</span></h5>
                                             </div>
-                                            <div class="text-muted">
-                                                <div>Dataset: {{ itemData._source.dataset.name }} | Type: {{ itemData._type }} | Score: {{ itemData._score }}</div>
-                                                <div>Directory: {{ itemData._source.dataset.directory }}</div>
+                                            <div class="text-muted" style="font-size: 85%;"> 
+                                                <div>
+                                                    National Institute of Standards and Technology — The COVID-19 CDCS
+                                                    represents a metadata repository that provides a catalog of COVID-19
+                                                    related research literature and data.
+                                                </div>
+                                                <div class="mt-3"> 
+                                                    <span class="label label-danger mr-1">CSV</span>
+                                                    <span class="label label-warning mr-1">RDF</span>
+                                                    <span class="label label-primary mr-1">JSON</span>
+                                                    <span class="label label-primary mr-1">XML</span>
+                                                    <span class="label label-info mr-1">HTML</span>
+                                                    <span class="label label-success mr-1">XLS</span>
+                                                </div>
                                             </div>
                                         </a>
                                     </el-card>
                                 </div>
                                 <div v-else class="mt-3">
-                                    <no-data/>
+                                    <no-data />
                                 </div>
                             </div>
                             <div v-if="resultSearchData.data.length > 0">
-                                <el-pagination v-model:current-page="pagination.page" 
-                                    v-model:page-size="pagination.size" 
-                                    :page-sizes="[20, 50, 100, 200, 300, 400]"
-                                    :small="small" 
-                                    layout="total, sizes, prev, pager, next, jumper"
-                                    :total="resultSearchData.total.value" 
-                                    @size-change="submitSearch" 
-                                    @current-change="submitSearch" />
+                                <el-pagination v-model:current-page="pagination.page" v-model:page-size="pagination.size"
+                                    :page-sizes="[20, 50, 100, 200, 300, 400]" :small="small"
+                                    layout="total, sizes, prev, pager, next, jumper" :total="resultSearchData.total.value"
+                                    @size-change="submitSearch" @current-change="submitSearch" />
                             </div>
-                        </el-card>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -195,23 +267,34 @@
 <script lang="ts" src="@/scripts/searchResult.ts"></script>
 
 <style scoped lang="scss">
-
-.bage-count{
+.bage-count {
     background-color: #2878eb !important;
     font-size: 0.8rem;
     color: #fdfdfd;
-} 
-.section-no-scroller{
+    padding-top: 0.3rem;
+    border-radius: 50px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.section-no-scroller {
     max-height: 100vh;
     overflow: hidden;
 }
+
 .result-item-wrapper {
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
     cursor: pointer;
+
     &:hover {
         background-color: #c6ddff;
     }
-    a{
-        text-decoration: none;;
+
+    a {
+        text-decoration: none;
+        ;
     }
 }
 
@@ -223,9 +306,9 @@
         padding: 0;
 
         li {
-            padding: 0.5rem 0.5rem;
+            padding: 0.3rem 0.5rem;
             margin-bottom: 0.2rem;
-            border-radius: 8px;
+            border-radius: 10px;
             transition: all 0.2s;
             cursor: pointer;
 
@@ -235,7 +318,7 @@
             }
 
             a {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
                 color: #141414;
                 font-family: 'Roboto', sans-serif;
 
@@ -275,68 +358,40 @@
     }
 }
 
-.lds-dual-ring {
-    display: inline-block;
-    width: 80px;
-    height: 80px;
+.filter-group-block {
+    border: 0px solid rgb(41, 89, 122);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
 
-    &:after {
-        content: " ";
-        display: block;
-        width: 64px;
-        height: 64px;
-        margin: 8px;
-        border-radius: 50%;
-        border: 6px solid #2878EB;
-        border-color: #2878EB transparent #2878EB transparent;
-        animation: lds-dual-ring 1.2s linear infinite;
-    }
-}
+    .filter-group-header {
+        background: rgb(95, 156, 198);
+        background: -moz-linear-gradient(90deg, rgba(27, 89, 133, 1) 0%, rgba(48, 125, 179, 1) 100%);
+        background: -webkit-linear-gradient(90deg, rgba(27, 89, 133, 1) 0%, rgba(48, 125, 179, 1) 100%);
+        background: linear-gradient(90deg, rgba(27, 89, 133, 1) 0%, rgba(48, 125, 179, 1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5f9cc6", endColorstr="#307db3", GradientType=1);
+        -webkit-border-top-left-radius: 17px;
+        -webkit-border-top-right-radius: 17px;
+        -moz-border-radius-topleft: 17px;
+        -moz-border-radius-topright: 17px;
+        border-top-left-radius: 17px;
+        border-top-right-radius: 17px;
+        padding: 0.6rem 1rem;
 
-@keyframes lds-dual-ring {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-
-.el-card {
-    &.d-flex {
-        .el-card__body {
-            display: -ms-flexbox !important;
-            display: flex !important;
+        h4 {
+            color: #fff !important;
+            margin-bottom: 0;
+            font-size: 1.2rem !important;
         }
     }
 
-    &.flex-fill {
-        .el-card__body {
-            ms-flex: 1 1 auto !important;
-            flex: 1 1 auto !important;
-        }
+    .filter-content-block {
+        background-color: #f0f0f0;
+        -webkit-border-bottom-right-radius: 20px;
+        -webkit-border-bottom-left-radius: 20px;
+        -moz-border-radius-bottomright: 20px;
+        -moz-border-radius-bottomleft: 20px;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
     }
-
-    &.justify-content-center {
-        .el-card__body {
-            -ms-flex-pack: center !important;
-            justify-content: center !important;
-        }
-    }
-
-    &.flex-column {
-        .el-card__body {
-            -ms-flex-direction: column !important;
-            flex-direction: column !important;
-        }
-    }
-}
-
-@media screen and (min-width: 576px) {
-    .jumbotron {
-        padding: 2rem 2rem 4rem 2rem;
-    }
-}
-</style>
+}</style>
