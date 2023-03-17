@@ -1,9 +1,10 @@
 import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from 'vue-router';
 import { searchDataApi } from "@/api/searchDataApi";
-
 export default {
 	setup() {
+		const timeProcColorMap = ["muted",  "primary", "orange", "indigo", "info", "success"];
+
 		const isLoadingResult = ref(true);
 		const route = useRoute();
 		const router = useRouter();
@@ -39,7 +40,7 @@ export default {
 
 		const pagination = ref({
 			page: 1,
-			size: 20
+			size: 10
 		});
 		const resultSearchData = ref({
 			total: {
@@ -101,6 +102,23 @@ export default {
 			}); 
 		});
 
+		const timeProcessDocument = (documentTimeString:string) => {
+			let dptWithoutLastChunk = documentTimeString.slice(0, documentTimeString.lastIndexOf("\n"));
+			let dptStepTime:Array<string> = dptWithoutLastChunk.split("\n");
+			return dptStepTime.map(xItem => {
+				let splitLabel = xItem.split(":");
+				return {
+					label: splitLabel[0] ? splitLabel[0].trim() : "",
+					value: splitLabel[1] ? splitLabel[1].trim() : "",
+				}
+			});
+		}
+
+		const safeText = (textValue:string) => {
+			if(textValue) return textValue;
+			else return "";
+		};
+
 		const viewDocument = (docItem:any) =>{
             console.log(`viewDocument`, docItem);
 			//$('#detailDocModal').modal('show');
@@ -108,6 +126,8 @@ export default {
 		};
 
 		return {
+			safeText,
+			timeProcColorMap,
 			isLoadingResult, 
 			pagination,
 			resultSearchData,
@@ -116,6 +136,7 @@ export default {
 			keyword,
 			querySearch,
 			submitSearch,
+			timeProcessDocument,
 			viewDocument,
 		};
 	},

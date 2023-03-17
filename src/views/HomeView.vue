@@ -37,39 +37,35 @@
         <div class="container-fluid pb-5">
             <div class="container pb-1">
                 <div>
-                    <h3 class="mb-3"><i class="fas fa-angle-double-right text-primary"></i> XU HƯỚNG</h3>
-                    <div class="row">
-                        <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
-                            <div class="position-relative h-100">
-                                <img class="position-absolute w-100 h-100"
-                                    src="https://znews-photo.zingcdn.me/w360/Uploaded/mdf_uswreo/2023_02_06/7DHMSRJDQNHQFN3LI6364IQ54E.jpg"
-                                    style="object-fit: cover;">
-                            </div>
-                        </div>
-                        <div class="col-lg-7">
+                    <!-- <h3 class="mb-3"><i class="fas fa-angle-double-right text-primary"></i> XU HƯỚNG</h3> -->
+                    <div> 
+                        <div>
                             <div class="section-title position-relative mb-4">
-                                <h1 class="display-4">Rivers of Data – Inland Electronic Navigation Charts</h1>
+                                <h1 class="display-4">Khái quát chung về Tuyên Quang</h1>
                             </div>
-                            <p>Nautical charts provide critical information to mariners in support of safe navigation.  Historically these charts have been printed and distributed on paper, but modern communications systems allow for electronic charts that are able to be updated as new information becomes available.  The National Oceanic and Atmospheric Administration (NOAA) Office of Coast Survey produces charts for coastal and Great Lakes areas, and the U.S. Army Corps of Engineers produces charts for America’s inland rivers through the Inland Electronic Navigation Chart program.  The Inland Electronic Navigation Chart (IENC) program covers thousands of miles of navigable waterways.  America’s inland waterways move millions of tons of commodities every year, and the work of surveying, charting, and dredging sediment is continually ongoing due to the dynamic conditions and constant change happening along any given river.</p>
-                            <p>Rivers included in the Inland Electronic Navigation Chart (IENC) program include the Allegheny River, Arkansas River, Atchafalaya River, Black Warrior-Tombigbee Rivers, Cumberland River, Green River, Illinois River, Kaskaskia, Kanawha River, Lower Mississippi River, Missouri River, Monongahela River, Ohio River, Ouachita River, Red River, Tennessee River (including the Tellico, Hiwassee, Clinch and Emory Rivers), Tennessee-Tombigbee Waterway, Upper Mississippi River, and the White River.  Anyone can access the navigation charts for these rivers, which show depth contours, buoys, lights, known hazards, and reference landmarks.</p>
-                            <p>References and Data.Gov Links:</p>
-                            <p>Inland Electronic Navigational Charts (IENC), https://catalog.data.gov/dataset/inland-electronic-navigational-charts-ienc</p>
-                            <p>USACE Inland Electronic Navigation Charts Homepage, http://ienccloud.us/</p>
-                            <p>NOAA Electronic Navigational Charts (ENC), https://catalog.data.gov/dataset/noaa-electronic-navigational-charts-enc7cce5</p>
-                            <p>NOAA Raster Navigational Charts (RNC), https://catalog.data.gov/dataset/noaa-raster-navigational-charts-rnc7af22</p>
+                            <img  src="https://tuyenquang.gov.vn/noidung/tintuc/PublishingImages/1%20tuongdai.jpg"
+                                    style="object-fit: cover; width: 500px; float: left; margin-right: 20px; margin-bottom: 10px; max-width: 100%;;">
+                            <div class="text-justify">
+                                <p>Tuyên Quang là tỉnh miền núi nằm ở phía Bắc Việt Nam, có diện tích: 5.867,9 Km2, dân số: 784.811 người (Theo Cuộc tổng điều tra dân số và nhà ở năm 2019)</p>
+                                <p>Trong cách mạng Tháng Tám, Tuyên Quang vinh dự là Thủ đô Khu giải phóng, được Trung ương Đảng và Bác Hồ chọn làm trung tâm của cách mạng cả nước. Tại Tân Trào-Sơn Dương - Tuyên Quang đã diễn ra nhiều sự kiện lịch sử gắn liền với vận mệnh dân tộc: Hội nghị toàn quốc của Đảng quyết định chủ trương lãnh đạo toàn dân Tổng khởi nghĩa giành chính quyền và cử ra Uỷ ban khởi nghĩa toàn quốc; Quốc dân Đại hội họp tại đình Tân Trào thành lập Uỷ ban dân tộc giải phóng tức Chính phủ lâm thời do Bác Hồ làm Chủ tịch.</p>
+                                <p>Trong những năm trường kỳ kháng chiến chống thực dân Pháp xâm lược, Tuyên Quang là Thủ đô Kháng chiến, nơi đồng bào cả nước "trông về Việt Bắc mà nuôi chí bền"; nhân dân các dân tộc Tuyên Quang đã luôn luôn làm tròn nhiệm vụ thiêng liêng: Xây dựng, bảo vệ An toàn khu (ATK); bảo vệ Bác Hồ, Trung ương Đảng, Quốc hội, Chính phủ, Mặt trận cùng nhiều bộ, ban, ngành Trung ương; bảo vệ các cơ quan đầu não của Cách mạng Lào. Đảng bộ và nhân dân các dân tộc Tuyên Quang đóng góp phần quan trọng, to lớn vào cuộc đấu tranh giành độc lập dân tộc, lập nhiều chiến công vang dội trên chiến trường, đập tan các cuộc tấn công lên Việt Bắc của giặc Pháp. Bình Ca, Cầu Cả, Khe Lau..., là những địa danh lịch sử làm rạng rỡ tinh thần chiến đấu quả cảm, mưu trí, sáng tạo của quân, dân Tuyên Quang trong chiến dịch Việt Bắc (Thu - Đông 1947).</p>
+                                <p>Trong công cuộc đổi mới, Đảng bộ và nhân dân các dân tộc Tuyên Quang tiếp tục phát huy truyền thống vẻ vang của quê hương cách mạng, quyết tâm vượt qua mọi khó khăn, khai thác tiềm năng, phát huy thế mạnh của địa phương, chủ động hội nhập kinh tế, tạo bước đột phá mạnh mẽ trong phát triển kinh tế - xã hội, tranh thủ sự đóng góp, giúp đỡ của Trung ương và các bộ, ngành, các địa phương trong cả nước và các tổ chức quốc tế, thực hiện thắng lợi các mục tiêu, nhiệm vụ do Đại hội đại biểu Đảng bộ tỉnh lần thứ XVII đề ra, phấn đấu đưa Tuyên Quang trở thành tỉnh phát triển khá trong các tỉnh miền núi phía Bắc, xứng đáng với truyền thống quê hương cách mạng, Thủ đô khu giải phóng, Thủ đô kháng chiến.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div style="clear: both;"></div>
                 <div class="mt-5">                    
                     <h3 class="mb-3"><i class="fas fa-angle-double-right text-primary"></i> CẬP NHẬT</h3>
                     <div>
-                        <el-card class="mb-3" v-for="item in 5">
+                        <el-card class="mb-3" :key="item" v-for="item in updateNews">
                             <div>
-                                <a href="/"><strong>Hydrosurvey Data Archive for Federal Navigation Projects</strong></a>
+                                <a href="#"><strong>{{item.title}}</strong></a>
                             </div>
-                            <div><i class="fas fa-calendar-alt tex-primary mr-2"></i><small class="text-muted">July 27, 2021  By Marin Kress, Research Scientist, U.S. Army Corps of Engineers</small></div>
-                            <div class="mt-1 text-muted text-justify" style="font-size: 90%;">
-                                The U.S. Army Corps of Engineers (USACE) performs hydrographic surveys (hydrosurveys) for federal navigation projects around the U.S. Federal navigation projects include an estimated 25,000 miles of channels and form a key part of U.S. maritime infrastructure in both coastal 
+                            <!-- <div><i class="fas fa-calendar-alt tex-muted mr-2"></i><small class="text-muted">July 27, 2021</small></div> -->
+                            <div class="mt-1 text-muted text-justify" style="font-size: 90%;"
+                                v-html="item.description">
+                                
                             </div>
                         </el-card>
                     </div>

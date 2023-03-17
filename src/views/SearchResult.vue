@@ -30,7 +30,8 @@
         <div class="container-fluid pb-lg-0 px-lg-5">
             <div class="mx-lg-5 pb-lg-0">
                 <div class="row row-eq-height px-lg-5">
-                    <div class="col-lg-3 col-sm-4 mb-5 mb-lg-0 pr-0 pr-md-4 d-none d-md-flex" style="min-height: 500px;">
+                    <div class="col-lg-3 col-sm-4 mb-5 mb-lg-0 pr-0 pr-md-4 d-none d-md-flex" 
+                        style="min-height: 500px;">
                         <div class="position-relative w-100 h-100">
                              
 
@@ -202,24 +203,42 @@
                                     <el-card v-for="itemData in resultSearchData.data" :key="itemData._id"
                                         class="w-100 mb-3 result-item-wrapper cursor-pointer">
                                         <a class="d-block w-100" target="_blank"
-                                            :href="`/detail-search-result?documentId=${itemData._id}`">
+                                            :href="`#`">
                                             <div>
-                                                <h5><span class="text-primary mr-2">MD COVID-19 - Total Number Released
-                                                        from Isolation: CovidLINK</span> <span>- 10 lượt xem</span></h5>
+                                                <h5>
+                                                    <span class="text-primary mr-2" v-highlight="{ keyword: keyword }">
+                                                        #{{safeText(itemData._source.metadata.so_ho_so).trim()}}
+                                                    </span> 
+                                                    <!-- <span>- 10 lượt xem</span> -->
+                                                </h5>
                                             </div>
-                                            <div class="text-muted" style="font-size: 85%;"> 
+                                            <div class="text-muted"> 
                                                 <div>
-                                                    National Institute of Standards and Technology — The COVID-19 CDCS
-                                                    represents a metadata repository that provides a catalog of COVID-19
-                                                    related research literature and data.
+                                                    <div class="text-muted indent-text" style="font-size: 80%;">- <strong>Số giấy phép:</strong> <span v-highlight="{ keyword: keyword }">{{itemData._source.metadata.so_giay_phep}}</span></div>
+                                                    <div class="text-muted indent-text" style="font-size: 80%;">- <strong>Về việc:</strong> <span v-highlight="{ keyword: keyword }">{{itemData._source.metadata.ve_viec}}</span></div>
+                                                    <div class="text-muted indent-text" style="font-size: 80%;">- <strong>Bộ phận đang xử lý:</strong> <span v-highlight="{ keyword: keyword }">{{itemData._source.metadata.bo_phan_dang_xu_ly}}</span></div>
+                                                    <div class="text-muted indent-text" style="font-size: 80%;">- <strong>Tên tài liệu:</strong> <span v-highlight="{ keyword: keyword }">{{itemData._source.metadata.ten_tai_lieu_xuat_ban}}</span></div>
+                                                    <div class="text-muted indent-text" style="font-size: 80%;">- <strong>Mục đích xuất bản:</strong> <span v-highlight="{ keyword: keyword }">{{itemData._source.metadata.muc_dich_xuat_ban}}</span></div>
                                                 </div>
-                                                <div class="mt-3"> 
-                                                    <span class="label label-danger mr-1">CSV</span>
-                                                    <span class="label label-warning mr-1">RDF</span>
-                                                    <span class="label label-primary mr-1">JSON</span>
-                                                    <span class="label label-primary mr-1">XML</span>
-                                                    <span class="label label-info mr-1">HTML</span>
-                                                    <span class="label label-success mr-1">XLS</span>
+                                                <div class="mt-3"  style="font-size: 85%;"> 
+                                                    <span class="label label-danger mr-1"
+                                                        v-if="itemData._source.metadata.thanh_toan_le_phi">
+                                                        {{itemData._source.metadata.thanh_toan_le_phi}}
+                                                    </span>
+                                                    <span class="label label-primary mr-1"
+                                                        v-if="itemData._source.metadata.ten_co_quan_to_chuc">
+                                                        {{itemData._source.metadata.ten_co_quan_to_chuc}}
+                                                    </span>
+                                                    <span class="label label-primary mr-1"
+                                                        v-if="itemData._source.metadata.hinh_thuc_phat_hanh">
+                                                        {{itemData._source.metadata.hinh_thuc_phat_hanh}}
+                                                    </span>
+                                                    <span class="label label-primary mr-1"
+                                                        v-if="itemData._source.metadata.pham_vi_su_dung">
+                                                        Sử dụng {{safeText(itemData._source.metadata.pham_vi_su_dung).trim().toLowerCase()}}
+                                                    </span>
+                                                    <!-- <span class="label label-info mr-1">HTML</span>
+                                                    <span class="label label-success mr-1">XLS</span> -->
                                                 </div>
                                             </div>
                                         </a>

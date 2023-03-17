@@ -51,6 +51,21 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component);
 }
 
+app.directive('highlight', {
+    beforeMount(el, binding) {
+        try{
+            if(binding && binding.value && binding.value.keyword && binding.value.keyword !== ''){
+                el.innerHTML = el.innerHTML.replace(new RegExp(binding.value.keyword, "gi"), (match:any) => {
+                    return '<span class="highlightText">' + match + '</span>';
+                });//el.innerHTML.replace(binding.value.keyword, `<em>${binding.value.keyword}</em>`);
+            }
+        }catch{
+
+        }
+    }
+});
+
+
 app.config.globalProperties.$filters = {
     prettyDate(value: any) {
         if (!value) value = new Date();
