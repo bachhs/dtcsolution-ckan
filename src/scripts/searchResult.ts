@@ -1,4 +1,4 @@
-import { ref, onMounted } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import { useRoute, useRouter } from 'vue-router';
 import { searchDataApi } from "@/api/searchDataApi";
 export default {
@@ -7,15 +7,17 @@ export default {
 
 		const isLoadingResult = ref(true);
 		const route = useRoute();
-		const router = useRouter();
+		const router = useRouter(); 
 
-		const DatabaseSelected = ref<string>(route.query.Database ? route.query.Database.toString() : "");		
-		const EntityTypeSelected = ref<string>(route.query.EntityType ? route.query.EntityType.toString() : ""); 
-		const ServiceSelected = ref<string>(route.query.Service ? route.query.Service.toString() : "");
-		const ServiceCategorySelected = ref<string>(route.query.ServiceCategory ? route.query.ServiceCategory.toString() : ""); 
-		const ServiceNameSelected = ref<string>(route.query.ServiceName ? route.query.ServiceName.toString() : ""); 
-		const TagsSelected = ref<string>(route.query.Tags ? route.query.Tags.toString() : "");
-		const TierSelected = ref<string>(route.query.Tier ? route.query.Tier.toString() : "");  
+		const filterSelected:any = reactive({
+			Database : (route.query.Database ? route.query.Database.toString() : ""),		
+			EntityType : (route.query.EntityType ? route.query.EntityType.toString() : ""), 
+			Service : (route.query.Service ? route.query.Service.toString() : ""),
+			ServiceCategory : (route.query.ServiceCategory ? route.query.ServiceCategory.toString() : ""), 
+			ServiceName : (route.query.ServiceName ? route.query.ServiceName.toString() : ""), 
+			Tags : (route.query.Tags ? route.query.Tags.toString() : ""),
+			Tier : (route.query.Tier ? route.query.Tier.toString() : ""),  
+		}); 
 
 		const aggregationsList = ref<any>({
             Database: Array<any>([]),
@@ -26,6 +28,8 @@ export default {
             Tags: Array<any>([]),
             Tier: Array<any>([]),
         });
+
+		const aggregationKeys = ref(Object.keys(aggregationsList.value));
 
 		const createAggregationsList = (propName:string, aggregations:any, itemSelected:any) =>{
             let bucketsItem = aggregations[`sterms#${propName}`].buckets; 
@@ -62,15 +66,10 @@ export default {
 				t: (new Date()).getTime() 
 			};
 			
-			let dSetSelected = aggregationsList.value.Service.find((xItem:any) =>  xItem.selected);
-            if(dSetSelected) qParam.Service = dSetSelected.key;
-            
-            let dbSelected = aggregationsList.value.Database.find((xItem:any) =>  xItem.selected);
-            if(dbSelected) qParam.Database = dbSelected.key;
-            
-            let qEntityTypeSelected = aggregationsList.value.EntityType.find((xItem:any) =>  xItem.selected);
-            if(qEntityTypeSelected) qParam.EntityType = qEntityTypeSelected.key;
-
+			Object.keys(aggregationsList.value).forEach((aggKey:string) => {
+				let aggItemSelected = aggregationsList.value[aggKey].find((xItem:any) =>  xItem.selected);
+				if(aggItemSelected) qParam[aggKey] = aggItemSelected.key;
+			});						
 			router.push({ path: '/search-result', query: qParam });			
 		}; 
 
@@ -82,16 +81,17 @@ export default {
 				querySearch: keyword.value,
             }; 
 			
-			if(ServiceSelected && ServiceSelected.value) searchParams.Service = ServiceSelected.value;
-			if(DatabaseSelected && DatabaseSelected.value) searchParams.schemas = DatabaseSelected.value;
-			if(EntityTypeSelected && EntityTypeSelected.value) searchParams.EntityType = EntityTypeSelected.value;
+			Object.keys(aggregationsList.value).forEach((aggKey:string) => { 
+				if(filterSelected[aggKey]) searchParams[aggKey] = filterSelected[aggKey];
+			});	 
 
-			searchDataApi.searchData(searchParams).then(({ data }) => {			
+			searchDataApi.searchData(searchParams).then(({ data }) => {		
+				console.log(`searchDataApi`, data);	
 				resultSearchData.value.data = data.hits.hits;
 				resultSearchData.value.total = data.hits.total;
-				createAggregationsList("Service", data.aggregations, ServiceSelected.value);
-				createAggregationsList("Database", data.aggregations, DatabaseSelected.value);
-				createAggregationsList("EntityType", data.aggregations, EntityTypeSelected.value);
+				Object.keys(aggregationsList.value).forEach((aggKey:string) => {
+					createAggregationsList(aggKey, data.aggregations, filterSelected[aggKey]);
+				});						 
 				if(searchInput && searchInput.value) searchInput.value.focus();
 				isLoadingResult.value = false;
 				
@@ -127,6 +127,7 @@ export default {
 		};
 
 		return {
+			aggregationKeys,
 			safeText,
 			timeProcColorMap,
 			isLoadingResult, 

@@ -33,163 +33,37 @@
                     <div class="col-lg-3 col-sm-4 mb-5 mb-lg-0 pr-0 pr-md-4 d-none d-md-flex" 
                         style="min-height: 500px;">
                         <div class="position-relative w-100 h-100">
-                            <div class="mb-4 filter-group-block" v-if="aggregationsList.Service.length > 0"> 
-                                <div class="section-title filter-group-header position-relative text-white">
-                                    <h4><i class="fas fa-angle-double-right"></i> Dialects</h4>
-                                </div>
-                                <div class="topic-list mt-0 p-2 filter-content-block">
-                                    <ul>
-                                        <li v-for="filterItem in aggregationsList.Service" :key="filterItem.key">
-                                            <a href="javascript:void(0)"
-                                                @click="filterItem.selected = !filterItem.selected; submitSearch();">
-                                                <div class="pl-2 d-flex align-items-center">
-                                                    <div>
-                                                        <i v-bind:class="{ 'fas fa-hand-point-right': !filterItem.selected, 'fas fa-check': filterItem.selected }"></i>
+                            <div v-for="aggregationKey in aggregationKeys" :key="aggregationKey">
+                                <div class="mb-4 filter-group-block" 
+                                    v-if="aggregationsList[aggregationKey].length > 0"> 
+                                    <div class="section-title filter-group-header position-relative text-white">
+                                        <h4><i class="fas fa-angle-double-right"></i> {{aggregationKey}}</h4>
+                                    </div>
+                                    <div class="topic-list mt-0 p-2 filter-content-block">
+                                        <ul>
+                                            <li v-for="filterItem in aggregationsList[aggregationKey]" :key="filterItem.key">
+                                                <a href="javascript:void(0)"
+                                                    @click="filterItem.selected = !filterItem.selected; submitSearch();">
+                                                    <div class="pl-2 d-flex align-items-center">
+                                                        <div>
+                                                            <i v-bind:class="{ 'fas fa-hand-point-right': !filterItem.selected, 'fas fa-check': filterItem.selected }"></i>
+                                                        </div>
+                                                        <div class="ml-2 flex-fill text-muted card-title-text">
+                                                            {{ filterItem.key }}
+                                                        </div>
+                                                        <div>
+                                                            <span class="ml-1 mr-2 bage-count badge">
+                                                                {{filterItem.doc_count}}
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                    <div class="ml-2 flex-fill text-muted card-title-text">
-                                                        {{ filterItem.key }}
-                                                    </div>
-                                                    <div>
-                                                        <span class="ml-1 mr-2 bage-count badge">
-                                                            {{filterItem.doc_count}}
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="mb-4 filter-group-block">
-                                <div class="section-title filter-group-header position-relative text-white">
-                                    <h4><i class="fas fa-angle-double-right"></i> Topic Categories</h4>
-                                </div>
-                                <div class="topic-list mt-0 p-2 filter-content-block">
-                                    <ul>
-                                        <li v-for="filterItem in 5" :key="filterItem">
-                                            <a href="javascript:void(0)">
-                                                <div class="pl-2 d-flex align-items-center">
-                                                    <div>
-                                                        <i class="fas fa-hand-point-right"></i>
-                                                    </div>
-                                                    <div class="ml-2 flex-fill text-muted card-title-text">Topic Categories
-                                                        {{ filterItem }}</div>
-                                                    <div>
-                                                        <span class="ml-1 mr-2 bage-count badge">
-                                                            99
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="mb-4 filter-group-block">
-                                <div class="section-title filter-group-header position-relative text-white">
-                                    <h4><i class="fas fa-angle-double-right"></i> Dataset Type</h4>
-                                </div>
-                                <div class="topic-list mt-0 p-2 filter-content-block">
-                                    <ul>
-                                        <li v-for="filterItem in 5" :key="filterItem">
-                                            <a href="javascript:void(0)">
-                                                <div class="pl-2 d-flex align-items-center">
-                                                    <div>
-                                                        <i class="fas fa-hand-point-right"></i>
-                                                    </div>
-                                                    <div class="ml-2 flex-fill text-muted card-title-text">Dataset Type {{
-                                                        filterItem }}</div>
-                                                    <div>
-                                                        <span class="ml-1 mr-2 bage-count badge">
-                                                            99
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="mb-4 filter-group-block">
-                                <div class="section-title filter-group-header position-relative text-white">
-                                    <h4><i class="fas fa-angle-double-right"></i> Tags</h4>
-                                </div>
-                                <div class="topic-list mt-0 p-2 filter-content-block">
-                                    <ul>
-                                        <li v-for="filterItem in 5" :key="filterItem">
-                                            <a href="javascript:void(0)">
-                                                <div class="pl-2 d-flex align-items-center">
-                                                    <div>
-                                                        <i class="fas fa-hand-point-right"></i>
-                                                    </div>
-                                                    <div class="ml-2 flex-fill text-muted card-title-text">Tags {{
-                                                        filterItem }}</div>
-                                                    <div>
-                                                        <span class="ml-1 mr-2 bage-count badge">
-                                                            99
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="mb-4 filter-group-block">
-                                <div class="section-title filter-group-header position-relative text-white">
-                                    <h4><i class="fas fa-angle-double-right"></i> Formats</h4>
-                                </div>
-                                <div class="topic-list mt-0 p-2 filter-content-block">
-                                    <ul>
-                                        <li v-for="filterItem in 5" :key="filterItem">
-                                            <a href="javascript:void(0)">
-                                                <div class="pl-2 d-flex align-items-center">
-                                                    <div>
-                                                        <i class="fas fa-hand-point-right"></i>
-                                                    </div>
-                                                    <div class="ml-2 flex-fill text-muted card-title-text">Formats {{
-                                                        filterItem }}</div>
-                                                    <div>
-                                                        <span class="ml-1 mr-2 bage-count badge">
-                                                            99
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="mb-4 filter-group-block">
-                                <div class="section-title filter-group-header position-relative text-white">
-                                    <h4><i class="fas fa-angle-double-right"></i> Organization Types</h4>
-                                </div>
-                                <div class="topic-list mt-0 p-2 filter-content-block">
-                                    <ul>
-                                        <li v-for="filterItem in 5" :key="filterItem">
-                                            <a href="javascript:void(0)">
-                                                <div class="pl-2 d-flex align-items-center">
-                                                    <div>
-                                                        <i class="fas fa-hand-point-right"></i>
-                                                    </div>
-                                                    <div class="ml-2 flex-fill text-muted card-title-text">Organization
-                                                        Types {{ filterItem }}</div>
-                                                    <div>
-                                                        <span class="ml-1 mr-2 bage-count badge">
-                                                            99
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                             
                         </div>
                     </div>
                     <div class="col-12 col-lg-9 col-sm-8 pl-lg-0 d-flex flex-column">
@@ -202,47 +76,29 @@
                                 <div v-if="resultSearchData.data.length > 0">
                                     <el-card v-for="itemData in resultSearchData.data" :key="itemData._id"
                                         class="w-100 mb-3 result-item-wrapper cursor-pointer">
-                                        <a class="d-block w-100" target="_blank"
+                                        <div class="d-block w-100" target="_blank"
                                             :href="`#`">
                                             <div>
                                                 <h5>
-                                                    <span class="text-primary mr-2" v-highlight="{ keyword: keyword }">
-                                                        #{{safeText(itemData._source.metadata.so_ho_so).trim()}}
+                                                    <span class="text-primary mr-2" 
+                                                        v-highlight="{ keyword: keyword }">
+                                                        #{{itemData._source.name}}
                                                     </span> 
                                                     <!-- <span>- 10 lượt xem</span> -->
                                                 </h5>
                                             </div>
-                                            <div class="text-muted"> 
-                                                <div>
-                                                    <div class="text-muted indent-text" style="font-size: 80%;">- <strong>Số giấy phép:</strong> <span v-highlight="{ keyword: keyword }">{{itemData._source.metadata.so_giay_phep}}</span></div>
-                                                    <div class="text-muted indent-text" style="font-size: 80%;">- <strong>Về việc:</strong> <span v-highlight="{ keyword: keyword }">{{itemData._source.metadata.ve_viec}}</span></div>
-                                                    <div class="text-muted indent-text" style="font-size: 80%;">- <strong>Bộ phận đang xử lý:</strong> <span v-highlight="{ keyword: keyword }">{{itemData._source.metadata.bo_phan_dang_xu_ly}}</span></div>
-                                                    <div class="text-muted indent-text" style="font-size: 80%;">- <strong>Tên tài liệu:</strong> <span v-highlight="{ keyword: keyword }">{{itemData._source.metadata.ten_tai_lieu_xuat_ban}}</span></div>
-                                                    <div class="text-muted indent-text" style="font-size: 80%;">- <strong>Mục đích xuất bản:</strong> <span v-highlight="{ keyword: keyword }">{{itemData._source.metadata.muc_dich_xuat_ban}}</span></div>
-                                                </div>
-                                                <div class="mt-3"  style="font-size: 85%;"> 
-                                                    <span class="label label-danger mr-1"
-                                                        v-if="itemData._source.metadata.thanh_toan_le_phi">
-                                                        {{itemData._source.metadata.thanh_toan_le_phi}}
-                                                    </span>
-                                                    <span class="label label-primary mr-1"
-                                                        v-if="itemData._source.metadata.ten_co_quan_to_chuc">
-                                                        {{itemData._source.metadata.ten_co_quan_to_chuc}}
-                                                    </span>
-                                                    <span class="label label-primary mr-1"
-                                                        v-if="itemData._source.metadata.hinh_thuc_phat_hanh">
-                                                        {{itemData._source.metadata.hinh_thuc_phat_hanh}}
-                                                    </span>
-                                                    <span class="label label-primary mr-1"
-                                                        v-if="itemData._source.metadata.pham_vi_su_dung">
-                                                        Sử dụng {{safeText(itemData._source.metadata.pham_vi_su_dung).trim().toLowerCase()}}
-                                                    </span>
-                                                    <!-- <span class="label label-info mr-1">HTML</span>
-                                                    <span class="label label-success mr-1">XLS</span> -->
-                                                </div>
+                                            <div class="text-muted" style="font-size: 85%;"> 
+                                                <div class="mt-1">{{ itemData._source.fullyQualifiedName }}</div>
+                                                <div class="mt-1">Kiểu bảng dữ liệu: {{ itemData._source.tableType }} | Version: {{ itemData._source.version }} | Số cột dữ liệu: {{ itemData._source.columns.length }} cột</div>
                                             </div>
-                                        </a>
-                                    </el-card>
+                                            <div class="mt-3"  style="font-size: 85%;"> 
+                                                <span class="label label-primary mr-1"
+                                                    v-for="tagItems in itemData._source.tags">
+                                                    {{tagItems.tagFQN}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </el-card> 
                                 </div>
                                 <div v-else class="mt-3">
                                     <no-data />
@@ -252,7 +108,8 @@
                                 <el-pagination v-model:current-page="pagination.page" v-model:page-size="pagination.size"
                                     :page-sizes="[20, 50, 100, 200, 300, 400]" :small="small"
                                     layout="total, sizes, prev, pager, next, jumper" :total="resultSearchData.total.value"
-                                    @size-change="submitSearch" @current-change="submitSearch" />
+                                    @size-change="submitSearch" @current-change="submitSearch"
+                                    hide-on-single-page />
                             </div>
                         </div>
                     </div>

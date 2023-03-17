@@ -55,21 +55,21 @@
                     </div>
                 </div>
                 <div style="clear: both;"></div>
-                <div class="mt-5">                    
+                <!-- <div class="mt-5">                    
                     <h3 class="mb-3"><i class="fas fa-angle-double-right text-primary"></i> CẬP NHẬT</h3>
                     <div>
                         <el-card class="mb-3" :key="item" v-for="item in updateNews">
                             <div>
                                 <a href="#"><strong>{{item.title}}</strong></a>
                             </div>
-                            <!-- <div><i class="fas fa-calendar-alt tex-muted mr-2"></i><small class="text-muted">July 27, 2021</small></div> -->
+                            <div><i class="fas fa-calendar-alt tex-muted mr-2"></i><small class="text-muted">July 27, 2021</small></div>
                             <div class="mt-1 text-muted text-justify" style="font-size: 90%;"
                                 v-html="item.description">
                                 
                             </div>
                         </el-card>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- About End -->
