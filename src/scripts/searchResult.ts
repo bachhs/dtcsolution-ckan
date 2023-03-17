@@ -1,36 +1,65 @@
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive, onMounted, onUnmounted } from "vue";
+import { defineAsyncComponent } from 'vue';
+import SkeletonBox from '@/components/SkeletonBox.vue';
 import { useRoute, useRouter } from 'vue-router';
 import { searchDataApi } from "@/api/searchDataApi";
 export default {
+	components: {
+		FilterAggregation: defineAsyncComponent({
+            loader: () => import('@/views/SearchResultComp/FilterComp.vue'),
+            loadingComponent: SkeletonBox,
+        }),
+	},
 	setup() {
 		const timeProcColorMap = ["muted",  "primary", "orange", "indigo", "info", "success"];
 
 		const isLoadingResult = ref(true);
+		const isToggleFilterBlock = ref(false);
+
+		const toggleFilterBlock = () => {
+			isToggleFilterBlock.value = !isToggleFilterBlock.value;
+			if(isToggleFilterBlock.value){
+				$('body').addClass('search-aggregation-toggled');
+			}
+			else{
+				$('body').removeClass('search-aggregation-toggled');
+			}
+		}
+
 		const route = useRoute();
 		const router = useRouter(); 
 
 		const countFilterSelected = ref(0);
 		const filterSelected:any = reactive({
 			Database : (route.query.Database ? route.query.Database.toString() : ""),		
-			EntityType : (route.query.EntityType ? route.query.EntityType.toString() : ""), 
+			//EntityType : (route.query.EntityType ? route.query.EntityType.toString() : ""), 
 			Service : (route.query.Service ? route.query.Service.toString() : ""),
-			ServiceCategory : (route.query.ServiceCategory ? route.query.ServiceCategory.toString() : ""), 
+			//ServiceCategory : (route.query.ServiceCategory ? route.query.ServiceCategory.toString() : ""), 
 			ServiceName : (route.query.ServiceName ? route.query.ServiceName.toString() : ""), 
 			Tags : (route.query.Tags ? route.query.Tags.toString() : ""),
-			Tier : (route.query.Tier ? route.query.Tier.toString() : ""),  
+			//Tier : (route.query.Tier ? route.query.Tier.toString() : ""),  
 		}); 
 
 		const aggregationsList = ref<any>({
             Database: Array<any>([]),
-            EntityType: Array<any>([]), 
+            //EntityType: Array<any>([]), 
             Service: Array<any>([]),
-            ServiceCategory: Array<any>([]),
+            //ServiceCategory: Array<any>([]),
             ServiceName: Array<any>([]),
             Tags: Array<any>([]),
-            Tier: Array<any>([]),
+            //Tier: Array<any>([]),
         });
 
 		const aggregationKeys = ref(Object.keys(aggregationsList.value));
+		const aggregationFilterParams:any = {
+			Database: "schemas",
+            //EntityType: Array<any>([]), 
+            Service: "dialects",
+            //ServiceCategory: Array<any>([]),
+            ServiceName: "service_names",
+            Tags: Array<any>([]),
+            //Tier: Array<any>([]),
+		};
 
 		const createAggregationsList = (propName:string, aggregations:any, itemSelected:any) =>{
             let bucketsItem = aggregations[`sterms#${propName}`].buckets; 
@@ -72,7 +101,7 @@ export default {
 				Object.keys(aggregationsList.value).forEach((aggKey:string) => {
 					let aggItemSelected = aggregationsList.value[aggKey].find((xItem:any) =>  xItem.selected);
 					if(aggItemSelected) {
-						qParam[aggKey] = aggItemSelected.key;
+						qParam[aggregationFilterParams[aggKey]] = aggItemSelected.key;
 					}
 				});	
 			}		
@@ -82,7 +111,14 @@ export default {
 			router.push({ path: '/search-result', query: qParam });			
 		}; 
 
+		const onWindowResize = () => {
+			if(isToggleFilterBlock.value){
+				toggleFilterBlock();
+			}
+		};
+
 		onMounted(() =>{
+			window.addEventListener("resize", onWindowResize);
 			resultSearchData.value.data = [];
 			const searchParams:any =   {
                 page: pagination.value.page,
@@ -112,6 +148,10 @@ export default {
 			}); 
 		});
 
+		onUnmounted(() => {
+			window.removeEventListener("resize", onWindowResize);
+		});
+
 		const timeProcessDocument = (documentTimeString:string) => {
 			let dptWithoutLastChunk = documentTimeString.slice(0, documentTimeString.lastIndexOf("\n"));
 			let dptStepTime:Array<string> = dptWithoutLastChunk.split("\n");
@@ -138,6 +178,7 @@ export default {
 		return {
 			aggregationKeys,
 			countFilterSelected,
+			isToggleFilterBlock,
 			safeText,
 			timeProcColorMap,
 			isLoadingResult, 
@@ -150,6 +191,7 @@ export default {
 			submitSearch,
 			timeProcessDocument,
 			viewDocument,
+			toggleFilterBlock,
 		};
 	},
 	computed: {

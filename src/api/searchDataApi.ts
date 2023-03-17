@@ -11,7 +11,7 @@ export const searchDataApi = {
         if(params.dataset_categories) requestParams.dataset_categories = params.dataset_categories;
         return axios.get(`ckan/search`, { params: requestParams });
     },
-    getDocumentDetail(docId:number){
-        return axios.get(`/doc/${docId}`);
+    getDocumentDetail(docId:any){
+        return axios.get(`/ckan/detail/${docId}`);
     }
 }

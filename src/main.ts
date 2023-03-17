@@ -14,6 +14,7 @@ import VueLazyLoad from 'vue3-lazyload';
 import TextClamp from 'vue3-text-clamp';
 //import TagsEdit from '@/components/TagsEdit.vue';
 import SkeletonBoxWithoutLoading from '@/components/SkeletonBoxWithoutLoading.vue';
+import VueEllipsis3 from 'vue-ellipsis-3';
 import moment from 'moment';
 import '@/assets/styles/custom.scss';
 
@@ -32,6 +33,7 @@ app.use(ElementPlus);
 app.use(CKEditor);
 app.use(VueLazyLoad);
 app.use(TextClamp);
+app.use(VueEllipsis3);
 app.component(
     'no-data',
     defineAsyncComponent({

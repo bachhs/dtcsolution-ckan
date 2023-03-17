@@ -32,34 +32,32 @@
 
         <div class="container-fluid pb-lg-0 px-lg-5">
             <div class="mx-lg-5 pb-lg-0">
-                <el-card class="position-relative w-100 h-100">
+                <div class="position-relative w-100 h-100">
                     <h1 class="text-primary text-center mt-4 mb-4 font-Roboto">Chi tiết văn bản</h1>
-                    <table class="table table-bordered"
-                        v-if="documentDetailData._source && documentDetailData._source.annotations">
-                        <thead>
-                            <tr>
-                                <th class="text-center text-nowrap" style="width: 10px">#</th>
-                                <th class="text-nowrap">Tên thông tin</th>
-                                <th class="text-nowrap">Giá trị</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(annotationItem, indexItem) in documentDetailData._source.annotations" 
-                                :key="indexItem">
-                                <td>{{indexItem+1}}.</td>
-                                <td class="text-nowrap">Thông tin {{indexItem+1}}</td>
-                                <td>
-                                    {{ annotationItem.metadata.name }}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <!-- <div v-for="(annotationItem, indexItem) in documentDetailData._source.annotations" :key="indexItem">
-                        <el-card class="mb-2">
-                            {{ annotationItem.metadata.name }}
-                        </el-card>
-                    </div> -->
-                </el-card>
+                    <div v-if="documentDetailData" class="text-center">
+                        <div>Tên: {{ documentDetailData.name }}</div>
+                        <div>Tên đầy đủ: {{ documentDetailData.fullyQualifiedName }}</div>
+                        <div>Version: {{ documentDetailData.version }}</div>
+                        <div>Loại bảng: {{ documentDetailData.tableType }}</div> 
+                        <div class="mt-3">
+                            <div>Các cột dữ liệu </div>
+                            <table class="table table-bordered mt-2">
+                                <thead>
+                                    <tr>
+                                        <th>Tên cột</th>
+                                        <th>Kiểu dữ liệu</th> 
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="column in documentDetailData.columns" :key="column.name">
+                                        <td>{{ column.name }}</td>
+                                        <td>{{ column.dataType }}({{ column.dataLength }})</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

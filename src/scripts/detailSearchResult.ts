@@ -17,9 +17,9 @@ export default {
 			router.push({ path: '/search-result', query: { q: querySearch.value } });		
 		}; 
 
-		onMounted(() =>{
-			const docId:number = parseInt(documentId.value);
-			searchDataApi.getDocumentDetail(docId).then(({ data }) => {			
+		onMounted(() =>{ 
+			console.log('docId', documentId.value);
+			searchDataApi.getDocumentDetail(documentId.value).then(({ data }) => {			
 				documentDetailData.value = data;
 				isLoadingResult.value = false;
 				

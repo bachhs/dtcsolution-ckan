@@ -7,7 +7,6 @@ const dataCategoryStore = useDataCategoryStore();
 
 <template>
     <div>
-
         <!-- Topbar Start -->
         <div class="container-fluid bg-dark d-none d-md-block">
             <div class="row py-2 px-lg-5">
@@ -42,7 +41,7 @@ const dataCategoryStore = useDataCategoryStore();
         <!-- Topbar End -->
         <!-- Navbar Start -->
         <div class="container-fluid p-0">
-            <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 py-md-3 py-lg-0 px-lg-5">
                 <a href="/" class="navbar-brand ml-lg-3">
                     <div class="mb-2">
                         <h1 class="m-0 mt-2 mb-0 text-uppercase text-primary" style="line-height: 2.2rem;"><strong>CKAN.DATA</strong></h1>

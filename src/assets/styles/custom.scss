@@ -1,3 +1,84 @@
+body {
+    &.search-aggregation-toggled{
+        overflow: hidden;
+    }
+}
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+.el-scrollbar {
+    &.d-flex {
+
+        .el-scrollbar__wrap,
+        .el-scrollbar__view {
+            display: -ms-flexbox !important;
+            display: flex !important;
+        }
+    }
+
+    &.flex-fill {
+
+        .el-scrollbar__wrap,
+        .el-scrollbar__view {
+            ms-flex: 1 1 auto !important;
+            flex: 1 1 auto !important;
+        }
+    }
+
+    &.justify-content-center {
+
+        .el-scrollbar__wrap,
+        .el-scrollbar__view {
+            -ms-flex-pack: center !important;
+            justify-content: center !important;
+        }
+    }
+
+    &.flex-column {
+
+        .el-scrollbar__wrap,
+        .el-scrollbar__view {
+            -ms-flex-direction: column !important;
+            flex-direction: column !important;
+        }
+    }
+}
+
+.el-card {
+    &.d-flex {
+        .el-card__body {
+            display: -ms-flexbox !important;
+            display: flex !important;
+        }
+    }
+
+    &.flex-fill {
+        .el-card__body {
+            ms-flex: 1 1 auto !important;
+            flex: 1 1 auto !important;
+        }
+    }
+
+    &.justify-content-center {
+        .el-card__body {
+            -ms-flex-pack: center !important;
+            justify-content: center !important;
+        }
+    }
+
+    &.flex-column {
+        .el-card__body {
+            -ms-flex-direction: column !important;
+            flex-direction: column !important;
+        }
+    }
+}
 
 .btn {
     -webkit-border-radius: 10px;
@@ -113,4 +194,22 @@
     &.label-danger {
         background-color: #d9534f;
     }
+}
+
+.line-clamp-1{
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1 !important;
+    -webkit-box-orient: vertical !important;
+    text-align: justify;
+}
+.line-clamp-2{
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
 }
