@@ -9,20 +9,26 @@ export default {
 		const route = useRoute();
 		const router = useRouter();
 
-		const dataset_ownerSelected = ref<string>(route.query.dataset_owner ? route.query.dataset_owner.toString() : "");
-		const dataset_nameSelected = ref<string>(route.query.dataset_name ? route.query.dataset_name.toString() : "");		
-		const dataset_categoriesSelected = ref<string>(route.query.dataset_categories ? route.query.dataset_categories.toString() : ""); 
+		const DatabaseSelected = ref<string>(route.query.Database ? route.query.Database.toString() : "");		
+		const EntityTypeSelected = ref<string>(route.query.EntityType ? route.query.EntityType.toString() : ""); 
+		const ServiceSelected = ref<string>(route.query.Service ? route.query.Service.toString() : "");
+		const ServiceCategorySelected = ref<string>(route.query.ServiceCategory ? route.query.ServiceCategory.toString() : ""); 
+		const ServiceNameSelected = ref<string>(route.query.ServiceName ? route.query.ServiceName.toString() : ""); 
+		const TagsSelected = ref<string>(route.query.Tags ? route.query.Tags.toString() : "");
+		const TierSelected = ref<string>(route.query.Tier ? route.query.Tier.toString() : "");  
 
 		const aggregationsList = ref<any>({
-            dataset_owner: Array<any>([]),
-            dataset_name: Array<any>([]),
-            dataset_categories: Array<any>([]),
+            Database: Array<any>([]),
+            EntityType: Array<any>([]), 
+            Service: Array<any>([]),
+            ServiceCategory: Array<any>([]),
+            ServiceName: Array<any>([]),
+            Tags: Array<any>([]),
+            Tier: Array<any>([]),
         });
 
 		const createAggregationsList = (propName:string, aggregations:any, itemSelected:any) =>{
-            let bucketsItem = aggregations[propName].buckets;
-            // console.log(`propName, ${propName}`);
-            // console.log(`itemSelected`, itemSelected);
+            let bucketsItem = aggregations[`sterms#${propName}`].buckets; 
             if(bucketsItem.length > 0){                
                 aggregationsList.value[propName] = bucketsItem.map((xItem:any) => {
                     return  {
@@ -56,20 +62,15 @@ export default {
 				t: (new Date()).getTime() 
 			};
 			
-			let dSetSelected = aggregationsList.value.dataset_owner.find((xItem:any) =>  xItem.selected);
-            if(dSetSelected){
-                qParam.dataset_owner = dSetSelected.key;
-            }
+			let dSetSelected = aggregationsList.value.Service.find((xItem:any) =>  xItem.selected);
+            if(dSetSelected) qParam.Service = dSetSelected.key;
             
-            let dNameSelected = aggregationsList.value.dataset_name.find((xItem:any) =>  xItem.selected);
-            if(dNameSelected){
-                qParam.dataset_name = dNameSelected.key;
-            }
+            let dbSelected = aggregationsList.value.Database.find((xItem:any) =>  xItem.selected);
+            if(dbSelected) qParam.Database = dbSelected.key;
             
-            let dCatSelected = aggregationsList.value.dataset_categories.find((xItem:any) =>  xItem.selected);
-            if(dCatSelected){
-                qParam.dataset_categories = dCatSelected.key;
-            }
+            let qEntityTypeSelected = aggregationsList.value.EntityType.find((xItem:any) =>  xItem.selected);
+            if(qEntityTypeSelected) qParam.EntityType = qEntityTypeSelected.key;
+
 			router.push({ path: '/search-result', query: qParam });			
 		}; 
 
@@ -81,16 +82,16 @@ export default {
 				querySearch: keyword.value,
             }; 
 			
-			if(dataset_ownerSelected && dataset_ownerSelected.value) searchParams.dataset_owner = dataset_ownerSelected.value;
-			if(dataset_nameSelected && dataset_nameSelected.value) searchParams.dataset_name = dataset_nameSelected.value;
-			if(dataset_categoriesSelected && dataset_categoriesSelected.value) searchParams.dataset_categories = dataset_categoriesSelected.value;
+			if(ServiceSelected && ServiceSelected.value) searchParams.Service = ServiceSelected.value;
+			if(DatabaseSelected && DatabaseSelected.value) searchParams.schemas = DatabaseSelected.value;
+			if(EntityTypeSelected && EntityTypeSelected.value) searchParams.EntityType = EntityTypeSelected.value;
 
 			searchDataApi.searchData(searchParams).then(({ data }) => {			
 				resultSearchData.value.data = data.hits.hits;
 				resultSearchData.value.total = data.hits.total;
-				createAggregationsList("dataset_owner", data.aggregations, dataset_ownerSelected.value);
-				createAggregationsList("dataset_name", data.aggregations, dataset_nameSelected.value);
-				createAggregationsList("dataset_categories", data.aggregations, dataset_categoriesSelected.value);
+				createAggregationsList("Service", data.aggregations, ServiceSelected.value);
+				createAggregationsList("Database", data.aggregations, DatabaseSelected.value);
+				createAggregationsList("EntityType", data.aggregations, EntityTypeSelected.value);
 				if(searchInput && searchInput.value) searchInput.value.focus();
 				isLoadingResult.value = false;
 				

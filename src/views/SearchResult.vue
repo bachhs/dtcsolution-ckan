@@ -33,25 +33,25 @@
                     <div class="col-lg-3 col-sm-4 mb-5 mb-lg-0 pr-0 pr-md-4 d-none d-md-flex" 
                         style="min-height: 500px;">
                         <div class="position-relative w-100 h-100">
-                             
-
-                            <div class="mb-4 filter-group-block">
+                            <div class="mb-4 filter-group-block" v-if="aggregationsList.Service.length > 0"> 
                                 <div class="section-title filter-group-header position-relative text-white">
-                                    <h4><i class="fas fa-angle-double-right"></i> Chủ đề</h4>
+                                    <h4><i class="fas fa-angle-double-right"></i> Dialects</h4>
                                 </div>
                                 <div class="topic-list mt-0 p-2 filter-content-block">
                                     <ul>
-                                        <li v-for="filterItem in 5" :key="filterItem">
-                                            <a href="javascript:void(0)">
+                                        <li v-for="filterItem in aggregationsList.Service" :key="filterItem.key">
+                                            <a href="javascript:void(0)"
+                                                @click="filterItem.selected = !filterItem.selected; submitSearch();">
                                                 <div class="pl-2 d-flex align-items-center">
                                                     <div>
-                                                        <i class="fas fa-hand-point-right"></i>
+                                                        <i v-bind:class="{ 'fas fa-hand-point-right': !filterItem.selected, 'fas fa-check': filterItem.selected }"></i>
                                                     </div>
-                                                    <div class="ml-2 flex-fill text-muted card-title-text">Topic {{
-                                                        filterItem }}</div>
+                                                    <div class="ml-2 flex-fill text-muted card-title-text">
+                                                        {{ filterItem.key }}
+                                                    </div>
                                                     <div>
                                                         <span class="ml-1 mr-2 bage-count badge">
-                                                            99
+                                                            {{filterItem.doc_count}}
                                                         </span>
                                                     </div>
                                                 </div>
