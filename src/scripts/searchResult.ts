@@ -9,6 +9,7 @@ export default {
 		const route = useRoute();
 		const router = useRouter(); 
 
+		const countFilterSelected = ref(0);
 		const filterSelected:any = reactive({
 			Database : (route.query.Database ? route.query.Database.toString() : ""),		
 			EntityType : (route.query.EntityType ? route.query.EntityType.toString() : ""), 
@@ -39,7 +40,8 @@ export default {
                         ...xItem,
                         selected: (itemSelected && itemSelected === xItem.key ? true : false),
                     }
-                });
+                });				
+				countFilterSelected.value += aggregationsList.value[propName].filter((xItem:any) => xItem.selected).length;
             }
             else aggregationsList.value[propName] = [];
         }
@@ -60,16 +62,23 @@ export default {
 			data: []
 		})
 
-		const submitSearch = () => {
+		const submitSearch = (forceNew:boolean = false) => {
 			let qParam:any = { 
 				q: querySearch.value, 
 				t: (new Date()).getTime() 
 			};
 			
-			Object.keys(aggregationsList.value).forEach((aggKey:string) => {
-				let aggItemSelected = aggregationsList.value[aggKey].find((xItem:any) =>  xItem.selected);
-				if(aggItemSelected) qParam[aggKey] = aggItemSelected.key;
-			});						
+			if(!forceNew){
+				Object.keys(aggregationsList.value).forEach((aggKey:string) => {
+					let aggItemSelected = aggregationsList.value[aggKey].find((xItem:any) =>  xItem.selected);
+					if(aggItemSelected) {
+						qParam[aggKey] = aggItemSelected.key;
+					}
+				});	
+			}		
+			else{
+				countFilterSelected.value = 0;
+			}			
 			router.push({ path: '/search-result', query: qParam });			
 		}; 
 
@@ -128,6 +137,7 @@ export default {
 
 		return {
 			aggregationKeys,
+			countFilterSelected,
 			safeText,
 			timeProcColorMap,
 			isLoadingResult, 

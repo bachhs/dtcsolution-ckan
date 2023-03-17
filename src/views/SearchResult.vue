@@ -13,11 +13,13 @@
                 <!-- <h1 class="m-0 mt-2 mb-2 text-uppercase text-white"><strong>Wiki DTC SOLUTION</strong></h1> -->
                 <div class="mx-auto mb-3" style="width: 100%; max-width: 600px;">
                     <div class="input-group">
-                        <input ref="searchInput" type="text" v-model="querySearch" @keyup.enter="submitSearch"
+                        <input ref="searchInput" type="text" 
+                            v-model="querySearch" 
+                            @keyup.enter="submitSearch(true)"
                             class="form-control border-light" style="padding: 30px 25px;"
                             placeholder="Nhập từ khoá để tìm kiếm..">
                         <div class="input-group-append">
-                            <button class="btn btn-secondary px-4 px-lg-5 font-Roboto" @click="submitSearch">
+                            <button class="btn btn-secondary px-4 px-lg-5 font-Roboto" @click="submitSearch(true)">
                                 Tìm kiếm
                             </button>
                         </div>
@@ -33,6 +35,12 @@
                     <div class="col-lg-3 col-sm-4 mb-5 mb-lg-0 pr-0 pr-md-4 d-none d-md-flex" 
                         style="min-height: 500px;">
                         <div class="position-relative w-100 h-100">
+                            <div class="mb-3" v-if="countFilterSelected > 0">
+                                <el-button size="large" class="w-100" round @click="submitSearch(true)">
+                                    <el-icon><CircleClose /></el-icon>
+                                    <span class="ml-2">Xoá các bộ lọc</span>
+                                </el-button>
+                            </div>
                             <div v-for="aggregationKey in aggregationKeys" :key="aggregationKey">
                                 <div class="mb-4 filter-group-block" 
                                     v-if="aggregationsList[aggregationKey].length > 0"> 
