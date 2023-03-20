@@ -4,7 +4,7 @@ import { searchDataApi } from "@/api/searchDataApi";
 
 export default {
 	setup() {
-		const isLoadingResult = ref(false);
+		const isLoadingResult = ref(true);
 		const route = useRoute();
 		const router = useRouter();
 		const documentId = ref<string>(route.query.documentId ? route.query.documentId.toString() : "");
