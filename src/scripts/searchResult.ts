@@ -3,6 +3,8 @@ import { defineAsyncComponent } from 'vue';
 import SkeletonBox from '@/components/SkeletonBox.vue';
 import { useRoute, useRouter } from 'vue-router';
 import { searchDataApi } from "@/api/searchDataApi";
+import { mapState } from 'pinia';
+import { useDataCategoryStore } from '@/stores/dataCategory';
 export default {
 	components: {
 		FilterAggregation: defineAsyncComponent({
@@ -78,6 +80,7 @@ export default {
 		const searchInput = ref<any>(null);
 		const keyword = ref(route.query.q);
 		const querySearch = ref(route.query.q);
+		const filterData = ref({});
 
 		const pagination = ref({
 			page: 1,
@@ -179,6 +182,7 @@ export default {
 		};
 
 		return {
+			filterData,
 			aggregationKeys,
 			countFilterSelected,
 			isToggleFilterBlock,
@@ -198,7 +202,6 @@ export default {
 		};
 	},
 	computed: {
-		//...mapState(useDataCategoryStore, ['organization', 'databaseEngineOptions']),
-
+		...mapState(useDataCategoryStore, ['organization', 'databaseEngineOptions']),
 	},
 };

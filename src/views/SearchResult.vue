@@ -36,13 +36,51 @@
                     </div>
                     <div class="col-12 col-lg-9 col-sm-8 pl-lg-0 d-flex flex-column">
                         <div class="w-100 flex-fill d-flex flex-column">
-                            <div class="d-flex align-items-center mb-3">
+                            <div class="d-flex align-items-md-center mb-3 flex-column flex-md-row">
                                 <div class="flex-fill section-title position-relative">
-                                    <h4 class="mb-0">{{ resultSearchData.total.value }} dữ liệu được tìm thấy cho từ khoá
-                                        "<strong class="text-primary">{{ keyword }}</strong>"</h4>
+                                    <h4 class="mb-0 text-left mb-2 mb-md-0">{{ resultSearchData.total.value }} dữ liệu</h4>
                                 </div>
-                                <div class="d-block d-md-none">
-                                    <el-button @click="toggleFilterBlock">
+                                <div class="d-flex align-items-center">                                    
+                                    <div>
+                                        <el-select
+                                            v-if="organization"  
+                                            v-model="filterData.organization_id"
+                                            filterable
+                                            placeholder="Cơ quan chủ quản.." >
+                                            <el-option label="Tất cả" value="" />
+                                            <el-option
+                                                v-for="item in organization"
+                                                :key="item.id"
+                                                :label="item.name"
+                                                :value="item.id" />
+                                        </el-select>
+                                    </div>
+                                    <div class="ml-2">
+                                        <el-select
+                                            v-if="organization"  
+                                            v-model="filterData.dataType"
+                                            filterable
+                                            placeholder="Hình thức cung cấp..">
+                                            <el-option label="Tất cả" value="" />
+                                            <el-option label="SMS" value="1" />
+                                            <el-option label="WEB" value="2" />
+                                            <el-option label="ZALO" value="3" /> 
+                                        </el-select>
+                                    </div>
+                                    <div class="ml-2">
+                                        <el-select 
+                                            v-model="filterData.sort" 
+                                            filterable
+                                            placeholder="Sắp xếp..">
+                                            <el-option label="Mặc định" value="" />
+                                            <el-option label="Tăng dần từ A-Z" value="1" />
+                                            <el-option label="Giảm dần Z-A" value="2" />
+                                            <el-option label="Thời gian cập nhật cũ nhất" value="3" />
+                                            <el-option label="Thời gian cập nhật mới nhất" value="4" />
+                                        </el-select>
+                                    </div>
+                                    <el-button @click="toggleFilterBlock"
+                                        class="d-block d-md-none ml-2">
                                         <i class="fas fa-filter text-muted"></i>
                                     </el-button>
                                 </div>
@@ -85,7 +123,7 @@
                                 <el-pagination v-model:current-page="pagination.page" v-model:page-size="pagination.size"
                                     :page-sizes="[20, 50, 100, 200, 300, 400]" :small="small"
                                     layout="total, sizes, prev, pager, next, jumper" :total="resultSearchData.total.value"
-                                    @size-change="submitSearch" @current-change="submitSearch" hide-on-single-page />
+                                    @size-change="submitSearch" @current-change="submitSearch"/>
                             </div>
                         </div>
                     </div>
@@ -170,7 +208,7 @@
             padding: 0;
 
             li {
-                padding: 0 0.5rem;
+                padding: 0.05rem 0.5rem;
                 margin-bottom: 0;
                 border-radius: 15px;
                 transition: all 0.2s;

@@ -1,9 +1,9 @@
 <template>
     <div class="w-100 h-100 d-flex flex-column">
         <div class="flex-fill d-flex flex-column">
-            <div class="mb-4 filter-group-block flex-fill  d-flex flex-column">
+            <div class="mb-4 mb-md-0 filter-group-block flex-fill  d-flex flex-column">
                 <div class="section-title filter-group-header position-relative text-white">
-                    <h4><i class="fas fa-angle-double-right"></i> Bộ lọc dữ liệu</h4>
+                    <h4><i class="fas fa-angle-double-right"></i> Lọc dữ liệu</h4>
                 </div>
                 <div class="topic-list mt-0 p-2 filter-content-block flex-fill">                    
                     <div class="ml-3 mr-3 mb-3 mt-2" v-if="countFilterSelected > 0">
