@@ -31,12 +31,12 @@ export default {
 
 		const countFilterSelected = ref(0);
 		const filterSelected:any = reactive({
-			Database : (route.query.Database ? route.query.Database.toString() : ""),		
+			Database : (route.query.schemas ? route.query.schemas.toString() : ""),		
 			//EntityType : (route.query.EntityType ? route.query.EntityType.toString() : ""), 
-			Service : (route.query.Service ? route.query.Service.toString() : ""),
+			Service : (route.query.dialects ? route.query.dialects.toString() : ""),
 			//ServiceCategory : (route.query.ServiceCategory ? route.query.ServiceCategory.toString() : ""), 
-			ServiceName : (route.query.ServiceName ? route.query.ServiceName.toString() : ""), 
-			Tags : (route.query.Tags ? route.query.Tags.toString() : ""),
+			ServiceName : (route.query.service_names ? route.query.service_names.toString() : ""), 
+			Tags : (route.query.tags ? route.query.tags.toString() : ""),
 			//Tier : (route.query.Tier ? route.query.Tier.toString() : ""),  
 		}); 
 
@@ -57,7 +57,7 @@ export default {
             Service: "dialects",
             //ServiceCategory: Array<any>([]),
             ServiceName: "service_names",
-            Tags: Array<any>([]),
+            Tags: "tags",
             //Tier: Array<any>([]),
 		};
 
@@ -98,8 +98,11 @@ export default {
 			};
 			
 			if(!forceNew){
+				console.log('submitSearch forceNew', forceNew);
 				Object.keys(aggregationsList.value).forEach((aggKey:string) => {
+					console.log('submitSearch aggKey', aggKey);
 					let aggItemSelected = aggregationsList.value[aggKey].find((xItem:any) =>  xItem.selected);
+					console.log('submitSearch aggItemSelected', aggItemSelected);
 					if(aggItemSelected) {
 						qParam[aggregationFilterParams[aggKey]] = aggItemSelected.key;
 					}

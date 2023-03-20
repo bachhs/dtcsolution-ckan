@@ -170,19 +170,14 @@
             padding: 0;
 
             li {
-                padding: 0.3rem 0.5rem;
-                margin-bottom: 0.2rem;
+                padding: 0 0.5rem;
+                margin-bottom: 0;
                 border-radius: 15px;
                 transition: all 0.2s;
                 cursor: pointer;
-
-                &:hover,
-                &.selected {
-                    background-color: #c6ddff;
-                }
-
+ 
                 a {
-                    font-size: 1.1rem;
+                    font-size: 1rem; 
                     color: #141414;
                     font-family: 'Roboto', sans-serif;
 
