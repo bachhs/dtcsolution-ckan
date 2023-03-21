@@ -44,7 +44,7 @@
                                     </div>
                                 </div>
                                 <hr class="mb-1 mt-3" />
-                                <div><strong><i class="far fa-list-alt text-primary mr-1"></i> Tên đầy đủ:</strong> {{ documentDetailData.fullyQualifiedName }}</div>
+                                <div><strong><i class="fas fa-align-justify text-primary mr-1"></i> Tên đầy đủ:</strong> {{ documentDetailData.fullyQualifiedName }}</div>
                                 <hr class="mb-1 mt-2" />
                                 <div>              
                                     <strong><i class="far fa-clock text-primary mr-1"></i> Ngày cập nhật:</strong>                       
@@ -52,11 +52,11 @@
                                 </div>
                                 <hr class="mb-1 mt-2" />
                                 <div>
-                                    <strong><i class="far fa-comment-dots text-primary mr-1"></i> Loại bảng:</strong> 
+                                    <strong><i class="far fa-list-alt text-primary mr-1"></i> Loại bảng:</strong> 
                                     <span class="ml-2">{{ documentDetailData.tableType }}</span>
                                 </div>
                                 <hr class="mb-1 mt-2" />
-                                <div><strong><i class="far fa-building text-primary mr-1"></i> Version:</strong> {{ documentDetailData.version }}</div>  
+                                <div><strong><i class="fas fa-code-branch text-primary mr-1"></i> Version:</strong> {{ documentDetailData.version }}</div>  
                             </div>
                         </el-card>
                         <el-card class="mt-4" v-if="documentDetailData.changeDescription" v-loading="isLoadingResult">                        
@@ -92,7 +92,7 @@
                                         <tbody>
                                             <tr v-for="column in documentDetailData.columns" :key="column.name">
                                                 <td class="text-left">{{ column.name }}</td>
-                                                <td>{{ column.dataType }}({{ column.dataLength }})</td>
+                                                <td>{{ column.dataTypeDisplay }}</td>
                                             </tr>
                                         </tbody>
                                     </table>

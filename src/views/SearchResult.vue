@@ -89,7 +89,7 @@
                                 <div v-if="resultSearchData.data.length > 0">
                                     <el-card v-for="itemData in resultSearchData.data" :key="itemData._id"
                                         class="w-100 mb-3 result-item-wrapper cursor-pointer">
-                                        <a class="d-block w-100" target="_blank" :href="`/detail-search-result?documentId=${itemData._id}`">
+                                        <a class="d-block w-100" :href="`/detail-search-result?documentId=${itemData._id}`">
                                             <div>
                                                 <h5>
                                                     <span class="text-primary mr-2" v-highlight="{ keyword: keyword }">
@@ -267,12 +267,12 @@
             background: -webkit-linear-gradient(90deg, rgba(27, 89, 133, 1) 0%, rgba(48, 125, 179, 1) 100%);
             background: linear-gradient(90deg, rgba(27, 89, 133, 1) 0%, rgba(48, 125, 179, 1) 100%);
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5f9cc6", endColorstr="#307db3", GradientType=1);
-            -webkit-border-top-left-radius: 17px;
-            -webkit-border-top-right-radius: 17px;
-            -moz-border-radius-topleft: 17px;
-            -moz-border-radius-topright: 17px;
-            border-top-left-radius: 17px;
-            border-top-right-radius: 17px;
+            -webkit-border-top-left-radius: 15px;
+            -webkit-border-top-right-radius: 15px;
+            -moz-border-radius-topleft: 15px;
+            -moz-border-radius-topright: 15px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
             padding: 0.6rem 1rem;
 
             h4 {
@@ -284,12 +284,12 @@
 
         .filter-content-block {
             background-color: #f0f0f0;
-            -webkit-border-bottom-right-radius: 20px;
-            -webkit-border-bottom-left-radius: 20px;
-            -moz-border-radius-bottomright: 20px;
-            -moz-border-radius-bottomleft: 20px;
-            border-bottom-right-radius: 20px;
-            border-bottom-left-radius: 20px;
+            -webkit-border-bottom-right-radius: 15px;
+            -webkit-border-bottom-left-radius: 15px;
+            -moz-border-radius-bottomright: 15px;
+            -moz-border-radius-bottomleft: 15px;
+            border-bottom-right-radius: 15px;
+            border-bottom-left-radius: 15px;
         }
     }
 }
