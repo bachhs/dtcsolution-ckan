@@ -95,17 +95,43 @@ dataCategoryStore.getAppParams();
                         </div>
                     </div> 
                     <div class="col-md-4 mb-2">
+                        <h3 class="text-white mb-4">Điều khoản</h3>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white-50 mb-2" href="#">
+                                <i class="fa fa-angle-right mr-2"></i> Chính sách bảo mật
+                            </a>
+                            <a class="text-white-50 mb-2" href="#">
+                                <i class="fa fa-angle-right mr-2"></i> Hướng dẫn sử dụng
+                            </a>
+                            <a class="text-white-50 mb-2" href="#">
+                                <i class="fa fa-angle-right mr-2"></i> Điều khoản sửa dụng
+                            </a>
+                            <a class="text-white-50 mb-2" href="#">
+                                <i class="fa fa-angle-right mr-2"></i> Liên hệ
+                            </a>
+                            <a class="text-white-50" href="#">
+                                <i class="fa fa-angle-right mr-2"></i> Giấy phép
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
                         <h3 class="text-white mb-4">Liên kết nhanh</h3>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Privacy
-                                Policy</a>
-                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Terms &
-                                Condition</a>
-                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Regular
-                                FAQs</a>
-                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Help &
-                                Support</a>
-                            <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Contact</a>
+                            <a class="text-white-50 mb-2" href="#">
+                                <i class="fa fa-angle-right mr-2"></i> Sở thông tin & Truyền thông
+                            </a>
+                            <a class="text-white-50 mb-2" href="#">
+                                <i class="fa fa-angle-right mr-2"></i> Sở Lao động, Thương binh & Xã hội
+                            </a>
+                            <a class="text-white-50 mb-2" href="#">
+                                <i class="fa fa-angle-right mr-2"></i> Sở tài nguyên và môi trường 
+                            </a>
+                            <a class="text-white-50 mb-2" href="#">
+                                <i class="fa fa-angle-right mr-2"></i> Sở Kế Koạch và Đầu Tư
+                            </a>
+                            <a class="text-white-50" href="#">
+                                <i class="fa fa-angle-right mr-2"></i> Sở Giáo Dục và Đào Tạo
+                            </a>
                         </div>
                     </div>
                 </div>

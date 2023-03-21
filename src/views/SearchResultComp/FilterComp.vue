@@ -18,14 +18,15 @@
                         class="mt-2"> 
                         <div v-if="aggregationsList[aggregationKey].length > 0"
                             class="mb-2">
-                            <div class="pl-3 text-primary">
-                                <strong>{{ aggregationKey.split(/(?=[A-Z])/).join(' ') }}</strong>
+                            <div class="pl-2 text-primary d-flex align-items-center">
+                                <div><strong>{{ aggregationKey.split(/(?=[A-Z])/).join(' ') }}</strong></div>
+                                <div class="flex-fill ml-2 mr-3"><hr/></div>
                             </div>
                             <ul class="mt-1">
                                 <li v-for="filterItem in aggregationsList[aggregationKey]" :key="filterItem.key">
                                     <a href="javascript:void(0)"
                                         @click="selectAggItem(aggregationsList[aggregationKey], filterItem)">
-                                        <div class="pl-2 d-flex align-items-center pt-1 pb-1">
+                                        <div class="pl-1 d-flex align-items-center pt-1 pb-1">
                                             <div>
                                                 <el-checkbox class="m-0 h-auto" size="large" :checked="filterItem.selected" />
                                                 <!-- <i v-bind:class="{ 'fas fa-hand-point-right': !filterItem.selected, 'fas fa-check': filterItem.selected }"></i> -->
