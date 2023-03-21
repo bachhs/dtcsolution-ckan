@@ -39,8 +39,7 @@
                         <div>
                             <div class="section-title text-center position-relative mb-4">
                                 <h3>DỮ LIỆU THEO CHỦ ĐỀ</h3>
-                            </div>
-                            <hr />
+                            </div> 
                         <!-- <img  src="https://tuyenquang.gov.vn/noidung/tintuc/PublishingImages/1%20tuongdai.jpg"
                                     style="object-fit: cover; width: 500px; float: left; margin-right: 20px; margin-bottom: 10px; max-width: 100%;;">
                             <div class="text-justify">
@@ -51,109 +50,121 @@
                                 </div> -->
                             <div class="row container-12 views-row-1 views-row-first">
                                 <div class="col-xs-6 col-sm-4 col-md-2 views-column-1 views-column-first  text-center">
-                                    <div class="views-field views-field-field-image">
-                                        <div class="field-content"></div>
-                                    </div>
-                                    <div class="topic-icon">
-                                        <div>
-                                            <a href="#"
-                                                class="font-icon-select-1 font-icon-select-1-e91e">
-                                                <i class="far fa-chart-bar fa-5x"></i>
-                                            </a>
+                                    <el-card>
+                                        <div class="views-field views-field-field-image">
+                                            <div class="field-content"></div>
                                         </div>
-                                    </div>
-                                    <div class="views-field views-field-name mt-1"> 
-                                        <a href="#">Đầu tư</a>
-                                    </div>
+                                        <div class="topic-icon">
+                                            <div>
+                                                <a href="#"
+                                                    class="font-icon-select-1 font-icon-select-1-e91e">
+                                                    <i class="far fa-chart-bar fa-5x"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="views-field views-field-name mt-1"> 
+                                            <a href="#">Đầu tư</a>
+                                        </div>
+                                    </el-card>
                                 </div> 
                                 <div class="col-xs-6 col-sm-4 col-md-2 views-column-1 views-column-first  text-center">
-                                    <div class="views-field views-field-field-image">
-                                        <div class="field-content"></div>
-                                    </div>
-                                    <div class="topic-icon">
-                                        <div>
-                                            <a href="#"
-                                                class="font-icon-select-1 font-icon-select-1-e91e">
-                                                <i class="fas fa-briefcase-medical fa-5x"></i>
-                                            </a>
+                                    <el-card>
+                                        <div class="views-field views-field-field-image">
+                                            <div class="field-content"></div>
                                         </div>
-                                    </div>
-                                    <div class="views-field views-field-name mt-1"> 
-                                        <a href="#">Y tế</a>
-                                    </div>
+                                        <div class="topic-icon">
+                                            <div>
+                                                <a href="#"
+                                                    class="font-icon-select-1 font-icon-select-1-e91e">
+                                                    <i class="fas fa-briefcase-medical fa-5x"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="views-field views-field-name mt-1"> 
+                                            <a href="#">Y tế</a>
+                                        </div>
+                                    </el-card>
                                 </div> 
                                 <div class="col-xs-6 col-sm-4 col-md-2 views-column-1 views-column-first  text-center">
-                                    <div class="views-field views-field-field-image">
-                                        <div class="field-content"></div>
-                                    </div>
-                                    <div class="topic-icon">
-                                        <div>
-                                            <a href="#"
-                                                class="font-icon-select-1 font-icon-select-1-e91e">
-                                                <i class="fas fa-globe-europe fa-5x"></i>
-                                            </a>
+                                    <el-card>
+                                        <div class="views-field views-field-field-image">
+                                            <div class="field-content"></div>
                                         </div>
-                                    </div>
-                                    <div class="views-field views-field-name mt-1"> 
-                                        <a href="#">Thị trường</a>
-                                    </div>
+                                        <div class="topic-icon">
+                                            <div>
+                                                <a href="#"
+                                                    class="font-icon-select-1 font-icon-select-1-e91e">
+                                                    <i class="fas fa-globe-europe fa-5x"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="views-field views-field-name mt-1"> 
+                                            <a href="#">Thị trường</a>
+                                        </div>
+                                    </el-card>
                                 </div> 
                                 <div class="col-xs-6 col-sm-4 col-md-2 views-column-1 views-column-first  text-center">
-                                    <div class="views-field views-field-field-image">
-                                        <div class="field-content"></div>
-                                    </div>
-                                    <div class="topic-icon">
-                                        <div>
-                                            <a href="#"
-                                                class="font-icon-select-1 font-icon-select-1-e91e">
-                                                <i class="fas fa-leaf fa-5x"></i>
-                                            </a>
+                                    <el-card>
+                                        <div class="views-field views-field-field-image">
+                                            <div class="field-content"></div>
                                         </div>
-                                    </div>
-                                    <div class="views-field views-field-name mt-1"> 
-                                        <a href="#">Môi trường</a>
-                                    </div>
+                                        <div class="topic-icon">
+                                            <div>
+                                                <a href="#"
+                                                    class="font-icon-select-1 font-icon-select-1-e91e">
+                                                    <i class="fas fa-leaf fa-5x"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="views-field views-field-name mt-1"> 
+                                            <a href="#">Môi trường</a>
+                                        </div>
+                                    </el-card>
                                 </div> 
                                 <div class="col-xs-6 col-sm-4 col-md-2 views-column-1 views-column-first  text-center">
-                                    <div class="views-field views-field-field-image">
-                                        <div class="field-content"></div>
-                                    </div>
-                                    <div class="topic-icon">
-                                        <div>
-                                            <a href="#"
-                                                class="font-icon-select-1 font-icon-select-1-e91e">
-                                                <i class="fas fa-sun fa-5x"></i>
-                                            </a>
+                                    <el-card>
+                                        <div class="views-field views-field-field-image">
+                                            <div class="field-content"></div>
                                         </div>
-                                    </div>
-                                    <div class="views-field views-field-name mt-1"> 
-                                        <a href="#">Khí hậu</a>
-                                    </div>
+                                        <div class="topic-icon">
+                                            <div>
+                                                <a href="#"
+                                                    class="font-icon-select-1 font-icon-select-1-e91e">
+                                                    <i class="fas fa-sun fa-5x"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="views-field views-field-name mt-1"> 
+                                            <a href="#">Khí hậu</a>
+                                        </div>
+                                    </el-card>
                                 </div> 
                                 <div class="col-xs-6 col-sm-4 col-md-2 views-column-1 views-column-first  text-center">
-                                    <div class="views-field views-field-field-image">
-                                        <div class="field-content"></div>
-                                    </div>
-                                    <div class="topic-icon">
-                                        <div>
-                                            <a href="#"
-                                                class="font-icon-select-1 font-icon-select-1-e91e">
-                                                <i class="fas fa-graduation-cap fa-5x"></i>
-                                            </a>
+                                    <el-card>
+                                        <div class="views-field views-field-field-image">
+                                            <div class="field-content"></div>
                                         </div>
-                                    </div>
-                                    <div class="views-field views-field-name mt-1"> 
-                                        <a href="#">Giáo dục</a>
-                                    </div>
+                                        <div class="topic-icon">
+                                            <div>
+                                                <a href="#"
+                                                    class="font-icon-select-1 font-icon-select-1-e91e">
+                                                    <i class="fas fa-graduation-cap fa-5x"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="views-field views-field-name mt-1"> 
+                                            <a href="#">Giáo dục</a>
+                                        </div>
+                                    </el-card>
                                 </div> 
                             </div>
                         </div>
                     </div>
                 </div>
             <div style="clear: both;"></div>
+            <hr class="mt-5"/>
             <div class="mt-5">                    
-                <h3 class="section-title text-center position-relative mb-4">TIN TỨC MỚI NHẤT</h3>
-                <hr/>
+                <h3 class="section-title text-center position-relative mb-4">TIN TỨC MỚI NHẤT</h3> 
                 <div>
                     <el-card class="mb-3" :key="item" v-for="item in updateNews">
                         <div class="d-flex">
