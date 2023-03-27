@@ -8,19 +8,36 @@ export default {
 		const route = useRoute();
 		const router = useRouter();
 		const documentId = ref<string>(route.query.documentId ? route.query.documentId.toString() : "");
-		const documentDetailData:any = ref({}); 
+		const documentDetailData:any = ref(null); 
 
 		const searchInput = ref<any>(null);
 		const querySearch = ref(""); 
+
+		const getSampleData = () => {
+			if(documentDetailData.value && documentDetailData.value != null){
+				searchDataApi.fetchSampleData(
+					documentDetailData.value.service.name,
+					documentDetailData.value.database.name,
+					documentDetailData.value.databaseSchema.name,
+					documentDetailData.value.name
+				).then(({ data }) => {	
+					console.log('fetchSampleData', data.sampleData);
+					documentDetailData.value.sampleData = data.sampleData;
+				})
+				.catch((error) =>{
+					console.error(error);
+				}); 
+			}
+		}
 
 		const submitSearch = () => {
 			router.push({ path: '/search-result', query: { q: querySearch.value } });		
 		}; 
 
 		onMounted(() =>{ 
-			console.log('docId', documentId.value);
 			searchDataApi.getDocumentDetail(documentId.value).then(({ data }) => {			
 				documentDetailData.value = data;
+				getSampleData();
 				isLoadingResult.value = false;
 				
 			})

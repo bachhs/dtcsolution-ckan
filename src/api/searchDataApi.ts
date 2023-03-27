@@ -1,4 +1,11 @@
 import axios from 'axios';
+const omAxios = axios.create({
+    baseURL: import.meta.env.VITE_OPEN_METADATA_URL,
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+    },
+});
 export const searchDataApi = {
     searchData(params: any) {
         const requestParams: any = {
@@ -13,5 +20,15 @@ export const searchDataApi = {
     },
     getDocumentDetail(docId:any){
         return axios.get(`/ckan/detail/${docId}`);
-    }
+    },
+    fetchSampleData( datasourceName: string, databaseName: string, schemaName: string, tableName: string ) {
+        return omAxios.get(
+            `/tables/name/${datasourceName}.${databaseName}.${schemaName}.${tableName}`,
+            {
+                params: {
+                    fields: 'sampleData',
+                },
+            }
+        );
+    },
 }

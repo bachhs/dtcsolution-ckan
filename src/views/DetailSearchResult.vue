@@ -32,7 +32,7 @@
         <div class="container-fluid pb-lg-0 px-lg-5">
             <div class="mx-lg-5 pb-lg-0">
                 <div class="container">
-                    <div class="position-relative w-100 h-100">
+                    <div class="position-relative w-100 h-100" v-if="documentDetailData"> 
                         <el-card  v-loading="isLoadingResult">
                             <div>
                                 <div class="d-flex align-items-center">
@@ -42,21 +42,44 @@
                                     <div class="d-flex align-items-center">
                                         <el-icon class="text-primary"> <Clock /> </el-icon> <span class="ml-1">Ngày cập nhật: {{ $filters.prettyDate(documentDetailData.updatedAt) }}</span>
                                     </div>
-                                </div>
-                                <hr class="mb-1 mt-3" />
-                                <div><strong><i class="fas fa-align-justify text-primary mr-1"></i> Tên đầy đủ:</strong> {{ documentDetailData.fullyQualifiedName }}</div>
-                                <hr class="mb-1 mt-2" />
-                                <div>              
-                                    <strong><i class="far fa-clock text-primary mr-1"></i> Ngày cập nhật:</strong>                       
-                                    <span class="ml-2">{{ $filters.prettyDate(documentDetailData.updatedAt) }} bởi <strong>{{ documentDetailData.updatedBy }}</strong></span>
-                                </div>
-                                <hr class="mb-1 mt-2" />
-                                <div>
-                                    <strong><i class="far fa-list-alt text-primary mr-1"></i> Loại bảng:</strong> 
-                                    <span class="ml-2">{{ documentDetailData.tableType }}</span>
-                                </div>
-                                <hr class="mb-1 mt-2" />
-                                <div><strong><i class="fas fa-code-branch text-primary mr-1"></i> Version:</strong> {{ documentDetailData.version }}</div>  
+                                </div> 
+                                <div class="mt-3">
+                                    <table class="table mb-0">
+                                        <tr>
+                                            <td class="p-2">
+                                                <strong><i class="fas fa-align-justify text-primary mr-1"></i> Tên đầy đủ:</strong>
+                                            </td>
+                                            <td class="p-2">
+                                                {{ documentDetailData.fullyQualifiedName }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2">
+                                                <strong><i class="far fa-clock text-primary mr-1"></i> Ngày cập nhật:</strong> 
+                                            </td>
+                                            <td class="p-2">
+                                                <span>{{ $filters.prettyDate(documentDetailData.updatedAt) }} 
+                                                    bởi <strong>{{ documentDetailData.updatedBy }}</strong></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2">
+                                                <strong><i class="far fa-list-alt text-primary mr-1"></i> Loại bảng:</strong> 
+                                            </td>
+                                            <td class="p-2">
+                                                <span>{{ documentDetailData.tableType }}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2">
+                                                <strong><i class="fas fa-code-branch text-primary mr-1"></i> Version:</strong>
+                                            </td>
+                                            <td class="p-2">
+                                                {{ documentDetailData.version }}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>   
                             </div>
                         </el-card>
                         <el-card class="mt-4" v-if="documentDetailData.changeDescription" v-loading="isLoadingResult">                        
@@ -80,22 +103,70 @@
                         </el-card>
                         <el-card class="mt-4" v-loading="isLoadingResult">
                             <h4 class="text-primary text-left mt-0 mb-2 font-Roboto">Chi tiết nguồn dữ liệu</h4>
-                            <div v-if="documentDetailData" class="text-center">  
-                                <div class="mt-3"> 
-                                    <table class="table table-bordered mt-2">
-                                        <thead>
-                                            <tr style="background-color: #f0f0f0;">
-                                                <th class="w-50 text-left">Tên cột</th>
-                                                <th class="w-50">Kiểu dữ liệu</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr v-for="column in documentDetailData.columns" :key="column.name">
-                                                <td class="text-left">{{ column.name }}</td>
-                                                <td>{{ column.dataTypeDisplay }}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            <div v-if="documentDetailData" class="text-center">
+                                <div class="mt-3">   
+                                    <el-tabs class="demo-tabs">
+                                        <el-tab-pane>
+                                            <template #label>
+                                                <span class="custom-tabs-label">
+                                                    <i class="fas fa-table"></i>
+                                                    <span class="ml-2">Cấu trúc bảng dữ liệu</span>
+                                                </span>
+                                            </template>
+                                            <div>                                                
+                                                <table class="table table-bordered mt-2">
+                                                    <thead>
+                                                        <tr style="background-color: #f0f0f0;">
+                                                            <th class="text-left  text-nowrap">Tên cột</th>
+                                                            <th class=" text-nowrap">Kiểu dữ liệu</th>
+                                                            <th class="w-50  text-nowrap">Tên đẩy đủ</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr v-for="column in documentDetailData.columns" :key="column.name">
+                                                            <td class="text-left text-nowrap">{{ column.name }}</td>
+                                                            <td class="text-left text-uppercase text-nowrap">{{ column.dataTypeDisplay }}</td>
+                                                            <td class="text-left  ">
+                                                                <div style="white-space: normal; word-break: break-all;">
+                                                                    {{ column.fullyQualifiedName }}
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </el-tab-pane> 
+                                        <el-tab-pane>
+                                            <template #label>
+                                                <span class="custom-tabs-label">
+                                                    <i class="far fa-list-alt"></i>
+                                                    <span class="ml-2">Dữ liệu mẫu</span>
+                                                </span>
+                                            </template>
+                                            <div>                                                
+                                                <el-scrollbar max-height="1000px" class="pr-3 pb-3">
+                                                    <table class="table table-bordered mt-2"
+                                                        v-if="documentDetailData.sampleData">
+                                                        <thead>
+                                                            <tr style="background-color: #f0f0f0;">
+                                                                <th v-for="column in documentDetailData.sampleData.columns" 
+                                                                    :key="column.name"
+                                                                    class="text-left text-nowrap">{{column}}</th> 
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr v-for="rowDataSample in documentDetailData.sampleData.rows" 
+                                                                :key="rowDataSample[0]">
+                                                                <td v-for="(column, columnIndex) in documentDetailData.sampleData.columns" 
+                                                                    :key="column.name"
+                                                                    class="text-left text-nowrap">{{ rowDataSample[columnIndex] }}</td> 
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </el-scrollbar>
+                                            </div>
+                                        </el-tab-pane> 
+                                    </el-tabs>
                                 </div>
                             </div>
                         </el-card>
